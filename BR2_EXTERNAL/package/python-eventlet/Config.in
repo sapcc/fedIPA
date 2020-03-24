@@ -1,0 +1,11 @@
+config BR2_PACKAGE_PYTHON_EVENTLET
+	bool "python-eventlet"
+	select BR2_PACKAGE_PYTHON_DNSPYTHON # runtime
+	select BR2_PACKAGE_PYTHON_ENUM34 # runtime
+	select BR2_PACKAGE_PYTHON_GREENLET # runtime
+	select BR2_PACKAGE_PYTHON_MONOTONIC # runtime
+	select BR2_PACKAGE_PYTHON_SIX # runtime
+	help
+	  Highly concurrent networking library.
+
+	  http://eventlet.net
