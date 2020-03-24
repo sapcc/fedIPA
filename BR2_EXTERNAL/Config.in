@@ -1,0 +1,2 @@
+source "$BR2_EXTERNAL_TINYIPA_PATH/package/python-ironic-python-agent/Config.in"
+source "$BR2_EXTERNAL_TINYIPA_PATH/package/python-ironic-lib/Config.in"
