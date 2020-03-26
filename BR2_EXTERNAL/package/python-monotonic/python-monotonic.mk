@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 # vim: noexpandtab filetype=make
+=======
+>>>>>>> b0d4282... add dependencies for oslo.concurrency
 ################################################################################
 #
 # python-monotonic
