@@ -3,8 +3,8 @@
 # dependencies
 # dnf install git make gcc-c++ patch perl-ExtUtils-MakeMaker perl-Thread-Queue
 
-# update all submodules
-git submodule update
+# update submodules
+git submodule update --init --recursive -- buildroot
 
 # the directory BR2_EXTERNAL holds all the stuff necessary for customizing the build
 # this enforces a strict line between buildroot from source and our image config
