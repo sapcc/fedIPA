@@ -1,0 +1,16 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_OSLOSERIALIZATION
+	bool "python-oslo.serialization"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PBR
+	BR2_PACKAGE_PYTHON_SIX
+	BR2_PACKAGE_PYTHON_MSGPACK
+	BR2_PACKAGE_PYTHON_OSLOUTILS
+	BR2_PACKAGE_PYTHON_PYTZ
+	BR2_PACKAGE_PYTHON_PYYAML
+	BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
+	help
+	  The oslo.serialization library provides support for representing objects
+	  in transmittable and storable formats, such as Base64, JSON and MessagePack.
+
+	  https://docs.openstack.org/oslo.serialization/latest/
