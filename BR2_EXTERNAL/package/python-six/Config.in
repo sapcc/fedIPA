@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_SIX
+	bool "python-six"
+	help
+	  Six is a Python 2 and 3 compatibility library.
+	  
+	  https://six.readthedocs.io/
