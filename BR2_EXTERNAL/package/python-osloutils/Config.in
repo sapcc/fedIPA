@@ -12,6 +12,6 @@ config BR2_PACKAGE_PYTHON_OSLOUTILS
 	select BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
 	select BR2_PACKAGE_PYTHON_PYPARSING
 	help
-		The oslo.utils library provides support for common utility type functions, such as encoding, exception handling, string manipulation, and time handling
-		
-		https://docs.openstack.org/oslo.utils/latest/
+	  The oslo.utils library provides support for common utility type functions, such as encoding, exception handling, string manipulation, and time handling
+	  
+	  https://docs.openstack.org/oslo.utils/latest/

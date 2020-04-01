@@ -6,6 +6,6 @@ config BR2_PACKAGE_PYTHON_OSLOI18N
 	select BR2_PACKAGE_PYTHON_BABEL
 	select BR2_PACKAGE_PYTHON_SIX
 	help
-		Oslo Internationalization Utilities
-		
-		https://docs.openstack.org/oslo.i18n/latest
+	  Oslo Internationalization Utilities
+	  
+	  https://docs.openstack.org/oslo.i18n/latest

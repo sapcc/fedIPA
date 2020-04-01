@@ -18,6 +18,8 @@ config BR2_PACKAGE_PYTHON_OSLOSERVICE
 	select BR2_PACKAGE_PYTHON_PASTE
 	select BR2_PACKAGE_PYTHON_YAPPI
 	help
-		oslo.service provides a framework for defining new long-running services using the patterns established by other OpenStack applications. It also includes utilities long-running applications might need for working with SSL or WSGI, performing periodic operations, interacting with systemd, etc.
-		
-		https://docs.openstack.org/oslo.service/latest/
+	  oslo.service provides a framework for defining new long-running services using the patterns established
+	  by other OpenStack applications. It also includes utilities long-running applications might need for
+	  working with SSL or WSGI, performing periodic operations, interacting with systemd, etc.
+	  
+	  https://docs.openstack.org/oslo.service/latest/
