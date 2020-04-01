@@ -1,0 +1,10 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_HACKING
+	bool "python-hacking"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_FLAKE8
+	select BR2_PACKAGE_PYTHON_SIX
+	help
+	  hacking is a set of flake8 plugins that test and enforce the OpenStack StyleGuide
+	  
+	  https://docs.openstack.org/hacking/latest/
