@@ -112,7 +112,7 @@ class python_package():
         summary: str = self._summary
         with open(os.path.join(package_dir, 'Config.in'), 'w') as f:
             f.write('# vim: noexpandtab filetype=make\n')
-            f.write('config {}\n'.format(self._escape_for_makefile(package=name, prefix='BR2_PACKAGE_PYTHON_')))
+            f.write('config {}\n'.format(self._escape_for_makefile(package=name, prefix='BR2_PACKAGE_')))
             f.write('\tbool "{}"\n'.format(name))
             if python_version:
                 f.write('\tdepends on BR2_PACKAGE_PYTHON{}\n'.format(python_version.replace('2', '')))
