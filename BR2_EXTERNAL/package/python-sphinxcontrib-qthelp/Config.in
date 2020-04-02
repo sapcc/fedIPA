@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SPHINXCONTRIB_QTHELP
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_QTHELP
 	bool "python-sphinxcontrib-qthelp"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_FLAKE8

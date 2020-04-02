@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_ASYNCIO
+config BR2_PACKAGE_PYTHON_PYTEST_ASYNCIO
 	bool "python-pytest-asyncio"
 	select BR2_PACKAGE_PYTHON_PYTEST
 	select BR2_PACKAGE_PYTHON_ASYNC_GENERATOR

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_DDT
+config BR2_PACKAGE_PYTHON_DDT
 	bool "python-ddt"
 	help
 	  Data-Driven/Decorated Tests

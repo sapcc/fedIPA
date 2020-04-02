@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_FORKED
+config BR2_PACKAGE_PYTHON_PYTEST_FORKED
 	bool "python-pytest-forked"
 	select BR2_PACKAGE_PYTHON_PYTEST
 	help

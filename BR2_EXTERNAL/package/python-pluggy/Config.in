@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PLUGGY
+config BR2_PACKAGE_PYTHON_PLUGGY
 	bool "python-pluggy"
 	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
 	select BR2_PACKAGE_PYTHON_PRE_COMMIT

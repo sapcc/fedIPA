@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTHON_DATEUTIL
+config BR2_PACKAGE_PYTHON_PYTHON_DATEUTIL
 	bool "python-python-dateutil"
 	select BR2_PACKAGE_PYTHON_SIX
 	help

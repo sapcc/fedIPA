@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_LARK_PARSER
+config BR2_PACKAGE_PYTHON_LARK_PARSER
 	bool "python-lark-parser"
 	depends on BR2_PACKAGE_PYTHON3
 	help

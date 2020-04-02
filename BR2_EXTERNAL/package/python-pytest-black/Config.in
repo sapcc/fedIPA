@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_BLACK
+config BR2_PACKAGE_PYTHON_PYTEST_BLACK
 	bool "python-pytest-black"
 	depends on BR2_PACKAGE_PYTHON3
 	help

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PIFPAF
+config BR2_PACKAGE_PYTHON_PIFPAF
 	bool "python-pifpaf"
 	select BR2_PACKAGE_PYTHON_DAIQUIRI
 	select BR2_PACKAGE_PYTHON_CLICK

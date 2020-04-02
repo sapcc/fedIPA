@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_DPCONTRACTS
+config BR2_PACKAGE_PYTHON_DPCONTRACTS
 	bool "python-dpcontracts"
 	depends on BR2_PACKAGE_PYTHON3
 	help

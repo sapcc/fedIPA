@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_FUNC_TIMEOUT
+config BR2_PACKAGE_PYTHON_FUNC_TIMEOUT
 	bool "python-func-timeout"
 	depends on BR2_PACKAGE_PYTHON
 	help

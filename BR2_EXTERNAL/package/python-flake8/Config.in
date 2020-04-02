@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_FLAKE8
+config BR2_PACKAGE_PYTHON_FLAKE8
 	bool "python-flake8"
 	select BR2_PACKAGE_PYTHON_ENTRYPOINTS
 	select BR2_PACKAGE_PYTHON_PYFLAKES

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SPHINX_AUTOBUILD
+config BR2_PACKAGE_PYTHON_SPHINX_AUTOBUILD
 	bool "python-sphinx-autobuild"
 	help
 	  Watch a Sphinx directory and rebuild the documentation when a change is detected. Also includes a livereload enabled web server.

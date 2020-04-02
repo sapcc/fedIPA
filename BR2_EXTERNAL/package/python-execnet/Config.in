@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_EXECNET
+config BR2_PACKAGE_PYTHON_EXECNET
 	bool "python-execnet"
 	select BR2_PACKAGE_PYTHON_APIPKG
 	select BR2_PACKAGE_PYTHON_PRE_COMMIT

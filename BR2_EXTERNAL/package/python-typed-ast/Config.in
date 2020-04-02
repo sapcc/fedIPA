@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_TYPED_AST
+config BR2_PACKAGE_PYTHON_TYPED_AST
 	bool "python-typed-ast"
 	help
 	  a fork of Python 2 and 3 ast modules with type comment support

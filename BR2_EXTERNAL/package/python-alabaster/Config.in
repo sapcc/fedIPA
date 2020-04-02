@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_ALABASTER
+config BR2_PACKAGE_PYTHON_ALABASTER
 	bool "python-alabaster"
 	help
 	  A configurable sidebar-enabled Sphinx theme

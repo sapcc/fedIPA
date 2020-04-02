@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_JARACOPACKAGING
+config BR2_PACKAGE_PYTHON_JARACOPACKAGING
 	bool "python-jaraco.packaging"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_SIX

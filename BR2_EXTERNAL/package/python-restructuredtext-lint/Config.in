@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_RESTRUCTUREDTEXT_LINT
+config BR2_PACKAGE_PYTHON_RESTRUCTUREDTEXT_LINT
 	bool "python-restructuredtext-lint"
 	help
 	  reStructuredText linter

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_FLAKE8
+config BR2_PACKAGE_PYTHON_PYTEST_FLAKE8
 	bool "python-pytest-flake8"
 	select BR2_PACKAGE_PYTHON_FLAKE8
 	select BR2_PACKAGE_PYTHON_PYTEST

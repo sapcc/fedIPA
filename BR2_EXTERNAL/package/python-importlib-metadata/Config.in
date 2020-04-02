@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_IMPORTLIB_METADATA
+config BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
 	bool "python-importlib-metadata"
 	select BR2_PACKAGE_PYTHON_ZIPP
 	select BR2_PACKAGE_PYTHON_PATHLIB2

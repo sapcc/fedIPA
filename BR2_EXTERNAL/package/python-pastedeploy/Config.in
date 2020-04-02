@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PASTEDEPLOY
+config BR2_PACKAGE_PYTHON_PASTEDEPLOY
 	bool "python-pastedeploy"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_PASTE

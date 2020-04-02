@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_TOX
+config BR2_PACKAGE_PYTHON_TOX
 	bool "python-tox"
 	select BR2_PACKAGE_PYTHON_PACKAGING
 	select BR2_PACKAGE_PYTHON_PLUGGY

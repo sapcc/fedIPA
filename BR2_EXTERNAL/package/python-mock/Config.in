@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_MOCK
+config BR2_PACKAGE_PYTHON_MOCK
 	bool "python-mock"
 	select BR2_PACKAGE_PYTHON_TWINE
 	select BR2_PACKAGE_PYTHON_WHEEL

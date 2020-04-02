@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_README_RENDERER
+config BR2_PACKAGE_PYTHON_README_RENDERER
 	bool "python-readme-renderer"
 	select BR2_PACKAGE_PYTHON_BLEACH
 	select BR2_PACKAGE_PYTHON_DOCUTILS

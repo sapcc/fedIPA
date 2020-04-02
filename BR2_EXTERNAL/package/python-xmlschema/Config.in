@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_XMLSCHEMA
+config BR2_PACKAGE_PYTHON_XMLSCHEMA
 	bool "python-xmlschema"
 	select BR2_PACKAGE_PYTHON_ELEMENTPATH
 	help

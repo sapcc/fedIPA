@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_EVENTLET
+config BR2_PACKAGE_PYTHON_EVENTLET
 	bool "python-eventlet"
 	select BR2_PACKAGE_PYTHON_DNSPYTHON
 	select BR2_PACKAGE_PYTHON_GREENLET

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYCODESTYLE
+config BR2_PACKAGE_PYTHON_PYCODESTYLE
 	bool "python-pycodestyle"
 	help
 	  Python style guide checker

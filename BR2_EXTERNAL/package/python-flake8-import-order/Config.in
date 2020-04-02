@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_FLAKE8_IMPORT_ORDER
+config BR2_PACKAGE_PYTHON_FLAKE8_IMPORT_ORDER
 	bool "python-flake8-import-order"
 	select BR2_PACKAGE_PYTHON_PYCODESTYLE
 	select BR2_PACKAGE_PYTHON_SETUPTOOLS

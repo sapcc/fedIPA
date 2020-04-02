@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_WHEEL
+config BR2_PACKAGE_PYTHON_WHEEL
 	bool "python-wheel"
 	select BR2_PACKAGE_PYTHON_PYTEST
 	select BR2_PACKAGE_PYTHON_PYTEST_COV

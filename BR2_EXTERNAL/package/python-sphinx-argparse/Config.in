@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SPHINX_ARGPARSE
+config BR2_PACKAGE_PYTHON_SPHINX_ARGPARSE
 	bool "python-sphinx-argparse"
 	help
 	  A sphinx extension that automatically documents argparse commands and options

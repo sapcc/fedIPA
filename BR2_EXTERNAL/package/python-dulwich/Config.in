@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_DULWICH
+config BR2_PACKAGE_PYTHON_DULWICH
 	bool "python-dulwich"
 	help
 	  Python Git Library

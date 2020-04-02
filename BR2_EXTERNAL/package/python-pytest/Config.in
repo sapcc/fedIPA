@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYTEST
+config BR2_PACKAGE_PYTHON_PYTEST
 	bool "python-pytest"
 	select BR2_PACKAGE_PYTHON_PY
 	select BR2_PACKAGE_PYTHON_PACKAGING

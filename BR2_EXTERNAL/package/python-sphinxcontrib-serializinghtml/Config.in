@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SPHINXCONTRIB_SERIALIZINGHTML
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_SERIALIZINGHTML
 	bool "python-sphinxcontrib-serializinghtml"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_FLAKE8

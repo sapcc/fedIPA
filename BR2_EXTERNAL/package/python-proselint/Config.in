@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PROSELINT
+config BR2_PACKAGE_PYTHON_PROSELINT
 	bool "python-proselint"
 	depends on BR2_PACKAGE_PYTHON
 	select BR2_PACKAGE_PYTHON_CLICK

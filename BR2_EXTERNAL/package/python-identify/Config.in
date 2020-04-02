@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_IDENTIFY
+config BR2_PACKAGE_PYTHON_IDENTIFY
 	bool "python-identify"
 	select BR2_PACKAGE_PYTHON_EDITDISTANCE
 	help

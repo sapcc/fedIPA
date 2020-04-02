@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYFLAKES
+config BR2_PACKAGE_PYTHON_PYFLAKES
 	bool "python-pyflakes"
 	help
 	  passive checker of Python programs

@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_CONTEXTLIB2
+config BR2_PACKAGE_PYTHON_CONTEXTLIB2
 	bool "python-contextlib2"
 	help
 	  Backports and enhancements for the contextlib module

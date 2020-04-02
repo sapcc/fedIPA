@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_MYPY_EXTENSIONS
+config BR2_PACKAGE_PYTHON_MYPY_EXTENSIONS
 	bool "python-mypy-extensions"
 	select BR2_PACKAGE_PYTHON_TYPING
 	help

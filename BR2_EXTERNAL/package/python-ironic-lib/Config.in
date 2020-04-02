@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_IRONIC_LIB
+config BR2_PACKAGE_PYTHON_IRONIC_LIB
 	bool "python-ironic-lib"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_PBR

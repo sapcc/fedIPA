@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_NODEENV
+config BR2_PACKAGE_PYTHON_NODEENV
 	bool "python-nodeenv"
 	help
 	  Node.js virtual environment builder

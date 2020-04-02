@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_ELEMENTPATH
+config BR2_PACKAGE_PYTHON_ELEMENTPATH
 	bool "python-elementpath"
 	depends on BR2_PACKAGE_PYTHON3
 	help

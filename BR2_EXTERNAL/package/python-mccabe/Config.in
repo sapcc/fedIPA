@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_MCCABE
+config BR2_PACKAGE_PYTHON_MCCABE
 	bool "python-mccabe"
 	help
 	  McCabe checker, plugin for flake8

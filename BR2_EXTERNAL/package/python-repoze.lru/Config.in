@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_REPOZELRU
+config BR2_PACKAGE_PYTHON_REPOZELRU
 	bool "python-repoze.lru"
 	select BR2_PACKAGE_PYTHON_SPHINX
 	select BR2_PACKAGE_PYTHON_COVERAGE

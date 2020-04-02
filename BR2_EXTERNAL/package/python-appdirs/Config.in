@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_APPDIRS
+config BR2_PACKAGE_PYTHON_APPDIRS
 	bool "python-appdirs"
 	help
 	  A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir".

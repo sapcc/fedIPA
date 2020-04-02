@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_DAIQUIRI
+config BR2_PACKAGE_PYTHON_DAIQUIRI
 	bool "python-daiquiri"
 	help
 	  Library to configure Python logging easily

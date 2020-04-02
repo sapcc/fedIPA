@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PINT
+config BR2_PACKAGE_PYTHON_PINT
 	bool "python-pint"
 	select BR2_PACKAGE_PYTHON_NUMPY
 	select BR2_PACKAGE_PYTHON_SETUPTOOLS

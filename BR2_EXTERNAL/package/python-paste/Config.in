@@ -1,10 +1,10 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PASTE
+config BR2_PACKAGE_PYTHON_PASTE
 	bool "python-paste"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_SIX
 	select BR2_PACKAGE_PYTHON_FLUP
-	select BR2_PACKAGE_PYTHON_PYTHON_OPENID
+	select BR2_PACKAGE_PYTHON_OPENID
 	help
 	  Tools for using a Web Server Gateway Interface stack
 

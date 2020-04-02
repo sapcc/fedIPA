@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_DISTLIB
+config BR2_PACKAGE_PYTHON_DISTLIB
 	bool "python-distlib"
 	help
 	  Distribution utilities

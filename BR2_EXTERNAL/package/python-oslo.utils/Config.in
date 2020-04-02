@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_OSLOUTILS
+config BR2_PACKAGE_PYTHON_OSLOUTILS
 	bool "python-oslo.utils"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_PBR

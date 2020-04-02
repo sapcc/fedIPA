@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SPHINXCONTRIB_WEBSUPPORT
+config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_WEBSUPPORT
 	bool "python-sphinxcontrib-websupport"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_FLAKE8

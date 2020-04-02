@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_TEMPITA
+config BR2_PACKAGE_PYTHON_TEMPITA
 	bool "python-tempita"
 	help
 	  A very small text templating language

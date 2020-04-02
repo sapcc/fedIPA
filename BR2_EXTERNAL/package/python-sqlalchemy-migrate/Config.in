@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SQLALCHEMY_MIGRATE
+config BR2_PACKAGE_PYTHON_SQLALCHEMY_MIGRATE
 	bool "python-sqlalchemy-migrate"
 	select BR2_PACKAGE_PYTHON_PBR
 	select BR2_PACKAGE_PYTHON_SQLALCHEMY

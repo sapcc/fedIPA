@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_FILELOCK
+config BR2_PACKAGE_PYTHON_FILELOCK
 	bool "python-filelock"
 	help
 	  A platform independent file lock.

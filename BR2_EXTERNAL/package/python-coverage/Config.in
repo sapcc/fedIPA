@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_COVERAGE
+config BR2_PACKAGE_PYTHON_COVERAGE
 	bool "python-coverage"
 	select BR2_PACKAGE_PYTHON_TOML
 	help

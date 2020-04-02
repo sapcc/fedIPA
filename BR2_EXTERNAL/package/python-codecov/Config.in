@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_CODECOV
+config BR2_PACKAGE_PYTHON_CODECOV
 	bool "python-codecov"
 	select BR2_PACKAGE_PYTHON_REQUESTS
 	select BR2_PACKAGE_PYTHON_COVERAGE

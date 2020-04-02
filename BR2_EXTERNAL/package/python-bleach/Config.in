@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_BLEACH
+config BR2_PACKAGE_PYTHON_BLEACH
 	bool "python-bleach"
 	select BR2_PACKAGE_PYTHON_SIX
 	select BR2_PACKAGE_PYTHON_WEBENCODINGS

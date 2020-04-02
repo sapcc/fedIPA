@@ -1,5 +1,5 @@
 # vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_PYPERCLIP
+config BR2_PACKAGE_PYTHON_PYPERCLIP
 	bool "python-pyperclip"
 	help
 	  A cross-platform clipboard module for Python. (Only handles plain text for now.)
