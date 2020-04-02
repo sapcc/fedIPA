@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_INVOKE
+	bool "python-invoke"
+	help
+	  Pythonic task execution
+
+	  http://docs.pyinvoke.org

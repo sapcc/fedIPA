@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_FLAKE8_DOCSTRINGS
+	bool "python-flake8-docstrings"
+	select BR2_PACKAGE_PYTHON_FLAKE8
+	select BR2_PACKAGE_PYTHON_PYDOCSTYLE
+	help
+	  Extension for flake8 which uses pydocstyle to check docstrings
+
+	  https://gitlab.com/pycqa/flake8-docstrings

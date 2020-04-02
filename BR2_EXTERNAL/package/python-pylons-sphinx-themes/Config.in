@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PYLONS_SPHINX_THEMES
+	bool "python-pylons-sphinx-themes"
+	help
+	  Sphinx themes for Pylons Project documentation.
+
+	  https://pylonsproject.org

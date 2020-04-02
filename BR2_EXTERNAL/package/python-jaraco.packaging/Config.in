@@ -1,0 +1,19 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_JARACOPACKAGING
+	bool "python-jaraco.packaging"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_JARACOPACKAGING
+	select BR2_PACKAGE_PYTHON_RSTLINKER
+	select BR2_PACKAGE_PYTHON_PYTEST
+	select BR2_PACKAGE_PYTHON_PYTEST_CHECKDOCS
+	select BR2_PACKAGE_PYTHON_PYTEST_FLAKE8
+	select BR2_PACKAGE_PYTHON_PYTEST_BLACK_MULTIPY
+	select BR2_PACKAGE_PYTHON_PYTEST_COV
+	help
+	  tools to supplement packaging Python releases
+
+	  https://github.com/jaraco/jaraco.packaging

@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_CMARKGFM
+	bool "python-cmarkgfm"
+	help
+	  Minimal bindings to GitHub's fork of cmark
+
+	  https://github.com/jonparrott/cmarkgfm

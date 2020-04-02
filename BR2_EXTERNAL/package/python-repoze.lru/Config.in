@@ -1,0 +1,10 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_REPOZELRU
+	bool "python-repoze.lru"
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_COVERAGE
+	select BR2_PACKAGE_PYTHON_NOSE
+	help
+	  A tiny LRU cache implementation and decorator
+
+	  http://www.repoze.org

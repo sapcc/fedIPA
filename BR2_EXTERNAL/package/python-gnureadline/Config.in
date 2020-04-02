@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_GNUREADLINE
+	bool "python-gnureadline"
+	help
+	  The standard Python readline extension statically linked against the GNU readline library.
+
+	  http://github.com/ludwigschwardt/python-gnureadline

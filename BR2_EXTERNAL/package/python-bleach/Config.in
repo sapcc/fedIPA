@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_BLEACH
+	bool "python-bleach"
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_WEBENCODINGS
+	help
+	  An easy safelist-based HTML-sanitizing tool.
+
+	  https://github.com/mozilla/bleach

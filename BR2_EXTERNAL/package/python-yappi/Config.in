@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_YAPPI
+	bool "python-yappi"
+	help
+	  Yet Another Python Profiler
+
+	  https://github.com/sumerc/yappi

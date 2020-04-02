@@ -1,0 +1,13 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PINT
+	bool "python-pint"
+	select BR2_PACKAGE_PYTHON_NUMPY
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS
+	select BR2_PACKAGE_PYTHON_PYTEST
+	select BR2_PACKAGE_PYTHON_PYTEST_MPL
+	select BR2_PACKAGE_PYTHON_PYTEST_COV
+	select BR2_PACKAGE_PYTHON_UNCERTAINTIES
+	help
+	  Physical quantities module
+
+	  https://github.com/hgrecco/pint

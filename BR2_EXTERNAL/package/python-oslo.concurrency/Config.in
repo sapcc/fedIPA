@@ -1,0 +1,14 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_OSLOCONCURRENCY
+	bool "python-oslo.concurrency"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_OSLOCONFIG
+	select BR2_PACKAGE_PYTHON_OSLOI18N
+	select BR2_PACKAGE_PYTHON_OSLOUTILS
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_FASTENERS
+	help
+	  Oslo Concurrency library
+
+	  https://docs.openstack.org/oslo.concurrency/latest/

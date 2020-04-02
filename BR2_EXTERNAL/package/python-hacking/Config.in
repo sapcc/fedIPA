@@ -4,7 +4,16 @@ config BR2_PACKAGE_PYTHON_HACKING
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_FLAKE8
 	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_FLAKE8_DOCSTRINGS
+	select BR2_PACKAGE_PYTHON_COVERAGE
+	select BR2_PACKAGE_PYTHON_FIXTURES
+	select BR2_PACKAGE_PYTHON_MOCK
+	select BR2_PACKAGE_PYTHON_PYTHON_SUBUNIT
+	select BR2_PACKAGE_PYTHON_STESTR
+	select BR2_PACKAGE_PYTHON_TESTSCENARIOS
+	select BR2_PACKAGE_PYTHON_TESTTOOLS
+	select BR2_PACKAGE_PYTHON_EVENTLET
 	help
-	  hacking is a set of flake8 plugins that test and enforce the OpenStack StyleGuide
-	  
+	  OpenStack Hacking Guideline Enforcement
+
 	  https://docs.openstack.org/hacking/latest/

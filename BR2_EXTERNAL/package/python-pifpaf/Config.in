@@ -1,0 +1,21 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PIFPAF
+	bool "python-pifpaf"
+	select BR2_PACKAGE_PYTHON_DAIQUIRI
+	select BR2_PACKAGE_PYTHON_CLICK
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_JINJA2
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_FIXTURES
+	select BR2_PACKAGE_PYTHON_PSUTIL
+	select BR2_PACKAGE_PYTHON_XATTR
+	select BR2_PACKAGE_PYTHON_UWSGI
+	select BR2_PACKAGE_PYTHON_REQUESTS
+	select BR2_PACKAGE_PYTHON_TESTREPOSITORY
+	select BR2_PACKAGE_PYTHON_TESTTOOLS
+	select BR2_PACKAGE_PYTHON_OS_TESTR
+	select BR2_PACKAGE_PYTHON_MOCK
+	help
+	  Suite of tools and fixtures to manage daemons for testing
+
+	  https://github.com/jd/pifpaf

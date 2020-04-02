@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PKGINFO
+	bool "python-pkginfo"
+	select BR2_PACKAGE_PYTHON_NOSE
+	select BR2_PACKAGE_PYTHON_COVERAGE
+	help
+	  Query metadatdata from sdists / bdists / installed packages.
+
+	  https://code.launchpad.net/~tseaver/pkginfo/trunk

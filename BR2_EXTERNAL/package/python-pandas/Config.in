@@ -1,0 +1,14 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PANDAS
+	bool "python-pandas"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PYTHON_DATEUTIL
+	select BR2_PACKAGE_PYTHON_PYTZ
+	select BR2_PACKAGE_PYTHON_NUMPY
+	select BR2_PACKAGE_PYTHON_PYTEST
+	select BR2_PACKAGE_PYTHON_PYTEST_XDIST
+	select BR2_PACKAGE_PYTHON_HYPOTHESIS
+	help
+	  Powerful data structures for data analysis, time series, and statistics
+
+	  https://pandas.pydata.org

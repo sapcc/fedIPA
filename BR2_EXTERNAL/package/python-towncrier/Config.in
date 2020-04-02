@@ -1,0 +1,11 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_TOWNCRIER
+	bool "python-towncrier"
+	select BR2_PACKAGE_PYTHON_CLICK
+	select BR2_PACKAGE_PYTHON_INCREMENTAL
+	select BR2_PACKAGE_PYTHON_JINJA2
+	select BR2_PACKAGE_PYTHON_TOML
+	help
+	  Building newsfiles for your project.
+
+	  https://github.com/hawkowl/towncrier

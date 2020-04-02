@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_APIPKG
+	bool "python-apipkg"
+	help
+	  apipkg: namespace control and lazy-import mechanism
+
+	  https://github.com/pytest-dev/apipkg

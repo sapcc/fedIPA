@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_FORKED
+	bool "python-pytest-forked"
+	select BR2_PACKAGE_PYTHON_PYTEST
+	help
+	  run tests in isolated forked subprocesses
+
+	  https://github.com/pytest-dev/pytest-forked

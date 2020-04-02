@@ -1,0 +1,15 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PYTEST_BLACK_MULTIPY
+	bool "python-pytest-black-multipy"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PYTEST_BLACK
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_JARACOPACKAGING
+	select BR2_PACKAGE_PYTHON_RSTLINKER
+	select BR2_PACKAGE_PYTHON_PYTEST
+	select BR2_PACKAGE_PYTHON_PYTEST_CHECKDOCS
+	select BR2_PACKAGE_PYTHON_PYTEST_FLAKE8
+	help
+	  Allow '--black' on older Pythons
+
+	  https://github.com/jaraco/skeleton

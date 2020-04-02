@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_GREENLET
+	bool "python-greenlet"
+	help
+	  Lightweight in-process concurrent programming
+
+	  https://github.com/python-greenlet/greenlet

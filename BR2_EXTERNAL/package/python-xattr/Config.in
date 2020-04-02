@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_XATTR
+	bool "python-xattr"
+	select BR2_PACKAGE_PYTHON_CFFI
+	help
+	  Python wrapper for extended filesystem attributes
+
+	  http://github.com/xattr/xattr

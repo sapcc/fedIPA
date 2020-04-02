@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_BANDIT
+	bool "python-bandit"
+	help
+	  Security oriented static analyser for python code.
+
+	  https://bandit.readthedocs.io/en/latest/

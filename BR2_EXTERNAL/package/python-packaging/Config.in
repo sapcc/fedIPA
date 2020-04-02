@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PACKAGING
+	bool "python-packaging"
+	select BR2_PACKAGE_PYTHON_PYPARSING
+	select BR2_PACKAGE_PYTHON_SIX
+	help
+	  Core utilities for Python packages
+
+	  https://github.com/pypa/packaging

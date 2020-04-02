@@ -1,0 +1,15 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_OSLOSERIALIZATION
+	bool "python-oslo.serialization"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_MSGPACK
+	select BR2_PACKAGE_PYTHON_OSLOUTILS
+	select BR2_PACKAGE_PYTHON_PYTZ
+	select BR2_PACKAGE_PYTHON_PYYAML
+	select BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
+	help
+	  Oslo Serialization library
+
+	  https://docs.openstack.org/oslo.serialization/latest/

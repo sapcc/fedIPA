@@ -1,0 +1,10 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_OSLOCONTEXT
+	bool "python-oslo.context"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
+	help
+	  Oslo Context library
+
+	  https://docs.openstack.org/oslo.context/latest/
