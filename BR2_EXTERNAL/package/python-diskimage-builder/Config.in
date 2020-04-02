@@ -1,0 +1,14 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_DISKIMAGE_BUILDER
+	bool "python-diskimage-builder"
+	select BR2_PACKAGE_PYTHON_BABEL
+	select BR2_PACKAGE_PYTHON_NETWORKX
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_PYYAML
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_STEVEDORE
+	select BR2_PACKAGE_PYTHON_FLAKE8
+	help
+	  This repository has the core functionality for building such images, both virtual and bare metal
+	  
+	  https://docs.openstack.org/diskimage-builder/latest/
