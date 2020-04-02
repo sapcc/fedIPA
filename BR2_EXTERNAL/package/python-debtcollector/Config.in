@@ -6,7 +6,6 @@ config BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
 	select BR2_PACKAGE_PYTHON_SIX
 	select BR2_PACKAGE_PYTHON_WRAPT
 	help
-	  A collection of Python deprecation patterns and strategies that help you collect
-	  your technical debt in a non-destructive manner.	
-	  
+	  A collection of Python deprecation patterns and strategies that help you collect your technical debt in a non-destructive manner.
+
 	  https://docs.openstack.org/debtcollector/latest

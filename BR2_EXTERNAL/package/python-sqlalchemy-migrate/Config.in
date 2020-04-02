@@ -1,0 +1,13 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_SQLALCHEMY_MIGRATE
+	bool "python-sqlalchemy-migrate"
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_SQLALCHEMY
+	select BR2_PACKAGE_PYTHON_DECORATOR
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_SQLPARSE
+	select BR2_PACKAGE_PYTHON_TEMPITA
+	help
+	  Database schema migration for SQLAlchemy
+
+	  http://www.openstack.org/

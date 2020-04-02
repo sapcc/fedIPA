@@ -1,0 +1,15 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_IMPORTLIB_METADATA
+	bool "python-importlib-metadata"
+	select BR2_PACKAGE_PYTHON_ZIPP
+	select BR2_PACKAGE_PYTHON_PATHLIB2
+	select BR2_PACKAGE_PYTHON_CONTEXTLIB2
+	select BR2_PACKAGE_PYTHON_CONFIGPARSER
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_RSTLINKER
+	select BR2_PACKAGE_PYTHON_PACKAGING
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_RESOURCES
+	help
+	  Read metadata from Python packages
+
+	  http://importlib-metadata.readthedocs.io/

@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_FASTENERS
+	bool "python-fasteners"
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_MONOTONIC
+	help
+	  A python package that provides useful locks.
+
+	  https://github.com/harlowja/fasteners

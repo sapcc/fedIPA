@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_ATOMICWRITES
+	bool "python-atomicwrites"
+	help
+	  Atomic file writes.
+
+	  https://github.com/untitaker/python-atomicwrites

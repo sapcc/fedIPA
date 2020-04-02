@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_PROCESS_TESTS
+	bool "python-process-tests"
+	depends on BR2_PACKAGE_PYTHON3
+	help
+	  Tools for testing processes
+
+	  https://github.com/ionelmc/python-process-tests

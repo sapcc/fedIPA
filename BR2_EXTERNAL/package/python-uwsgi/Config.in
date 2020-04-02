@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_UWSGI
+	bool "python-uwsgi"
+	help
+	  The uWSGI server
+
+	  https://uwsgi-docs.readthedocs.io/en/latest/

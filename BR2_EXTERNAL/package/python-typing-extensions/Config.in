@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_TYPING_EXTENSIONS
+	bool "python-typing-extensions"
+	select BR2_PACKAGE_PYTHON_TYPING
+	help
+	  Backported and Experimental Type Hints for Python 3.5+
+
+	  https://github.com/python/typing/blob/master/typing_extensions/README.rst

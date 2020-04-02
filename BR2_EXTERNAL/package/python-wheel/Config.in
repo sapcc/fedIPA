@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_WHEEL
+	bool "python-wheel"
+	select BR2_PACKAGE_PYTHON_PYTEST
+	select BR2_PACKAGE_PYTHON_PYTEST_COV
+	help
+	  A built-package format for Python
+
+	  https://github.com/pypa/wheel

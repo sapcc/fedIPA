@@ -1,0 +1,12 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_SPHINXCONTRIB_SERIALIZINGHTML
+	bool "python-sphinxcontrib-serializinghtml"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_FLAKE8
+	select BR2_PACKAGE_PYTHON_MYPY
+	select BR2_PACKAGE_PYTHON_DOCUTILS_STUBS
+	select BR2_PACKAGE_PYTHON_PYTEST
+	help
+	  sphinxcontrib-serializinghtml is a sphinx extension which outputs "serialized" HTML files (json and pickle).
+
+	  http://sphinx-doc.org/

@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_ALEMBIC
+	bool "python-alembic"
+	help
+	  A database migration tool for SQLAlchemy.
+
+	  https://alembic.sqlalchemy.org

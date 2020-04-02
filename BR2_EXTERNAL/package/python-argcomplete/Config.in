@@ -1,0 +1,15 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_ARGCOMPLETE
+	bool "python-argcomplete"
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_COVERAGE
+	select BR2_PACKAGE_PYTHON_FLAKE8
+	select BR2_PACKAGE_PYTHON_PEXPECT
+	select BR2_PACKAGE_PYTHON_WHEEL
+	help
+	  Bash tab completion for argparse
+
+	  https://github.com/kislyuk/argcomplete

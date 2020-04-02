@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_SPHINX_RTD_THEME
+	bool "python-sphinx-rtd-theme"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_SPHINX
+	help
+	  Read the Docs theme for Sphinx
+
+	  https://github.com/rtfd/sphinx_rtd_theme/

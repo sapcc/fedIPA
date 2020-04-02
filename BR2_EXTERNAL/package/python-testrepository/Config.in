@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_TESTREPOSITORY
+	bool "python-testrepository"
+	depends on BR2_PACKAGE_PYTHON3
+	help
+	  A repository of test results.
+
+	  https://launchpad.net/testrepository

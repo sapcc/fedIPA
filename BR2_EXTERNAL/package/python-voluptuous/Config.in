@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_VOLUPTUOUS
+	bool "python-voluptuous"
+	help
+	  # Voluptuous is a Python data validation library
+
+	  https://github.com/alecthomas/voluptuous

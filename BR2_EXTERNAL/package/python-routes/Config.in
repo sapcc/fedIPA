@@ -1,0 +1,10 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_ROUTES
+	bool "python-routes"
+	select BR2_PACKAGE_PYTHON_REPOZELRU
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_WEBOB
+	help
+	  Routing Recognition and Generation Tools
+
+	  https://routes.readthedocs.io/

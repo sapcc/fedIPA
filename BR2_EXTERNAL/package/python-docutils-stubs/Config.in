@@ -1,0 +1,8 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_DOCUTILS_STUBS
+	bool "python-docutils-stubs"
+	select BR2_PACKAGE_PYTHON_DOCUTILS
+	help
+	  PEP 561 type stubs for docutils
+
+	  https://github.com/tk0miya/docutils-stubs

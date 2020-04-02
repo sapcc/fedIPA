@@ -1,0 +1,17 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_OSLOUTILS
+	bool "python-oslo.utils"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PBR
+	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_ISO8601
+	select BR2_PACKAGE_PYTHON_OSLOI18N
+	select BR2_PACKAGE_PYTHON_PYTZ
+	select BR2_PACKAGE_PYTHON_NETADDR
+	select BR2_PACKAGE_PYTHON_NETIFACES
+	select BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
+	select BR2_PACKAGE_PYTHON_PYPARSING
+	help
+	  Oslo Utility library
+
+	  https://docs.openstack.org/oslo.utils/latest/

@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_CODECOV
+	bool "python-codecov"
+	select BR2_PACKAGE_PYTHON_REQUESTS
+	select BR2_PACKAGE_PYTHON_COVERAGE
+	help
+	  Hosted coverage reports for GitHub, Bitbucket and Gitlab
+
+	  https://github.com/codecov/codecov-python

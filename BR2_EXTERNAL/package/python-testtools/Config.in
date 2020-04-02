@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_TESTTOOLS
+	bool "python-testtools"
+	help
+	  Extensions to the Python standard library unit testing framework
+
+	  https://github.com/testing-cabal/testtools

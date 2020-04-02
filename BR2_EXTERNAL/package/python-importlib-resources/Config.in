@@ -1,0 +1,17 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_IMPORTLIB_RESOURCES
+	bool "python-importlib-resources"
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_PATHLIB2
+	select BR2_PACKAGE_PYTHON_CONTEXTLIB2
+	select BR2_PACKAGE_PYTHON_SINGLEDISPATCH
+	select BR2_PACKAGE_PYTHON_TYPING
+	select BR2_PACKAGE_PYTHON_ZIPP
+	select BR2_PACKAGE_PYTHON_IMPORTLIB_METADATA
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_RSTLINKER
+	select BR2_PACKAGE_PYTHON_JARACOPACKAGING
+	help
+	  Read resources from Python packages
+
+	  http://importlib-resources.readthedocs.io/

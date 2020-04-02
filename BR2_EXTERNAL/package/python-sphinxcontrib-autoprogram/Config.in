@@ -1,0 +1,9 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_SPHINXCONTRIB_AUTOPROGRAM
+	bool "python-sphinxcontrib-autoprogram"
+	select BR2_PACKAGE_PYTHON_SPHINX
+	select BR2_PACKAGE_PYTHON_SIX
+	help
+	  Documenting CLI programs
+
+	  https://github.com/sphinx-contrib/autoprogram

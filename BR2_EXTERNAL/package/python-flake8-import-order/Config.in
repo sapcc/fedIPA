@@ -1,0 +1,10 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_PYTHON_FLAKE8_IMPORT_ORDER
+	bool "python-flake8-import-order"
+	select BR2_PACKAGE_PYTHON_PYCODESTYLE
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS
+	select BR2_PACKAGE_PYTHON_ENUM34
+	help
+	  Flake8 and pylama plugin that checks the ordering of import statements.
+
+	  https://github.com/PyCQA/flake8-import-order
