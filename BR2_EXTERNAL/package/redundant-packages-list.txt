@@ -1,0 +1,126 @@
+argcomplete.json
+      "coverage ; extra == 'test'",
+      "flake8 ; extra == 'test'",
+      "pexpect ; extra == 'test'",
+      "wheel ; extra == 'test'"
+cmd2.json
+      "codecov ; extra == 'test'",
+      "coverage ; extra == 'test'",
+      "pytest ; extra == 'test'",
+      "pytest-cov ; extra == 'test'",
+      "pytest-mock ; extra == 'test'",
+      "mock ; (python_version < \"3.6\") and extra == 'test'",
+      "gnureadline ; (sys_platform == \"darwin\") and extra == 'test'"
+hacking.json
+      "coverage (!=4.4,>=4.0) ; extra == 'test'",
+      "fixtures (>=3.0.0) ; extra == 'test'",
+      "mock (>=2.0.0) ; extra == 'test'",
+      "python-subunit (>=1.0.0) ; extra == 'test'",
+      "stestr (>=2.0.0) ; extra == 'test'",
+      "testscenarios (>=0.4) ; extra == 'test'",
+      "testtools (>=2.2.0) ; extra == 'test'",
+      "eventlet (!=0.18.3,!=0.20.1,>=0.18.2) ; extra == 'test'"
+mock.json
+      "pytest ; extra == 'test'",
+      "pytest-cov ; extra == 'test'"
+oslo.db.json
+      "hacking (<1.2.0,>=1.1.0) ; extra == 'test'",
+      "coverage (!=4.4,>=4.0) ; extra == 'test'",
+      "eventlet (!=0.18.3,!=0.20.1,>=0.18.2) ; extra == 'test'",
+      "fixtures (>=3.0.0) ; extra == 'test'",
+      "mock (>=2.0.0) ; extra == 'test'",
+      "python-subunit (>=1.0.0) ; extra == 'test'",
+      "oslotest (>=3.2.0) ; extra == 'test'",
+      "oslo.context (>=2.19.2) ; extra == 'test'",
+      "stestr (>=2.0.0) ; extra == 'test'",
+      "testtools (>=2.2.0) ; extra == 'test'",
+      "os-testr (>=1.0.0) ; extra == 'test'",
+      "bandit (<1.6.0,>=1.1.0) ; extra == 'test'",
+      "pifpaf (>=0.10.0) ; extra == 'test'",
+      "PyMySQL (>=0.7.6) ; extra == 'test'",
+      "psycopg2 (>=2.7.0) ; extra == 'test'"
+oslo.log.json
+      "hacking (<2.1.0,>=2.0.0) ; extra == 'test'",
+      "stestr (>=2.0.0) ; extra == 'test'",
+      "testtools (>=2.3.0) ; extra == 'test'",
+      "mock (>=2.0.0) ; extra == 'test'",
+      "oslotest (>=3.3.0) ; extra == 'test'",
+      "coverage (>=4.5.1) ; extra == 'test'",
+      "bandit (<1.6.0,>=1.1.0) ; extra == 'test'",
+      "fixtures (>=3.0.0) ; extra == 'test'"
+pandas.json
+      "pytest (>=4.0.2) ; extra == 'test'",
+      "pytest-xdist ; extra == 'test'",
+      "hypothesis (>=3.58) ; extra == 'test'"
+pifpaf.json
+      "requests ; extra == 'test'",
+      "testrepository ; extra == 'test'",
+      "testtools ; extra == 'test'",
+      "os-testr ; extra == 'test'",
+      "mock ; extra == 'test'"
+Pint.json
+      "pytest ; extra == 'test'",
+      "pytest-mpl ; extra == 'test'",
+      "pytest-cov ; extra == 'test'",
+reno.json
+      "mock (>=1.2) ; extra == 'test'",
+      "coverage (!=4.4,>=4.0) ; extra == 'test'",
+      "python-subunit (>=0.0.18) ; extra == 'test'",
+      "openstackdocstheme (>=1.11.0) ; extra == 'test'",
+      "stestr (>=2.0.0) ; extra == 'test'",
+      "testscenarios (>=0.4) ; extra == 'test'",
+      "testtools (>=1.4.0) ; extra == 'test'"
+sphinxcontrib-applehelp.json
+      "pytest ; extra == 'test'"
+sphinxcontrib-devhelp.json
+      "pytest ; extra == 'test'"
+sphinxcontrib-htmlhelp.json
+      "pytest ; extra == 'test'",
+      "html5lib ; extra == 'test'"
+sphinxcontrib-jsmath.json
+      "pytest ; extra == 'test'",
+      "flake8 ; extra == 'test'",
+      "mypy ; extra == 'test'"
+sphinxcontrib-qthelp.json
+      "pytest ; extra == 'test'"
+sphinxcontrib-serializinghtml.json
+      "pytest ; extra == 'test'"
+sphinxcontrib-websupport.json
+      "pytest ; extra == 'test'",
+      "sqlalchemy ; extra == 'test'",
+      "whoosh ; extra == 'test'",
+      "Sphinx ; extra == 'test'"
+Sphinx.json
+      "pytest (<5.3.3) ; extra == 'test'",
+      "pytest-cov ; extra == 'test'",
+      "html5lib ; extra == 'test'",
+      "flake8 (>=3.5.0) ; extra == 'test'",
+      "flake8-import-order ; extra == 'test'",
+      "mypy (>=0.761) ; extra == 'test'",
+      "docutils-stubs ; extra == 'test'"
+stestr.json
+      "hacking (<1.2.0,>=1.1.0) ; extra == 'test'",
+      "sphinx (>2.1.0) ; extra == 'test'",
+      "subunit2sql (>=1.8.0) ; extra == 'test'",
+      "coverage (>=4.0) ; extra == 'test'",
+      "ddt (>=1.0.1) ; extra == 'test'",
+      "doc8 (>=0.8.0) ; extra == 'test'"
+subunit2sql.json
+      "hacking (!=0.13.0,<0.14,>=0.12.0); extra == 'test'",
+      "coverage (>=3.6); extra == 'test'",
+      "fixtures (>=0.3.14); extra == 'test'",
+      "mock (>=1.0); extra == 'test'",
+      "sphinx (>=1.6.2); extra == 'test'",
+      "testscenarios (>=0.4); extra == 'test'",
+      "stestr (>=1.0.0); extra == 'test'",
+      "testtools (>=0.9.34); extra == 'test'",
+      "PyMySql; extra == 'test'",
+      "psycopg2; extra == 'test'",
+      "oslo.concurrency (>=3.5.0); extra == 'test'",
+      "reno (>=0.1.1); extra == 'test'",
+      "openstackdocstheme (>=1.11.0); extra == 'test'",
+      "testresources (>=0.2.4); extra == 'test'",
+      "testscenarios (>=0.4); extra == 'test'"
+wheel.json
+      "pytest (>=3.0.0) ; extra == 'test'",
+      "pytest-cov ; extra == 'test'"
