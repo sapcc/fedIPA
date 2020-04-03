@@ -11,5 +11,6 @@ PYTHON_BROTLIPY_SITE = https://files.pythonhosted.org/packages/d9/91/bc79b88590e
 PYTHON_BROTLIPY_LICENSE = MIT
 PYTHON_BROTLIPY_LICENSE_FILES = LICENSE
 PYTHON_BROTLIPY_SETUP_TYPE = setuptools
+PYTHON_BROTLIPY_DEPENDENCIES = host-python-cffi brotli
 
 $(eval $(python-package))
