@@ -1,9 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTEST_FLAKE8
-	bool "python-pytest-flake8"
-	select BR2_PACKAGE_PYTHON_FLAKE8
-	select BR2_PACKAGE_PYTHON_PYTEST
-	help
-	  pytest plugin to check FLAKE8 requirements
-
-	  https://github.com/tholo/pytest-flake8

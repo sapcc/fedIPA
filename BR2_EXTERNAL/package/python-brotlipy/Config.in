@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_BROTLIPY
+	bool "python-brotlipy"
+	help
+	  Python binding to the Brotli library
+
+	  https://github.com/python-hyper/brotlipy/

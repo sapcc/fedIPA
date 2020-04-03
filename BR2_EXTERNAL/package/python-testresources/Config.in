@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_TESTRESOURCES
-	bool "python-testresources"
-	help
-	  Testresources, a pyunit extension for managing expensive test resources
-
-	  https://launchpad.net/testresources

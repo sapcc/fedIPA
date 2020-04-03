@@ -1,9 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_FREEZEGUN
-	bool "python-freezegun"
-	select BR2_PACKAGE_PYTHON_SIX
-	select BR2_PACKAGE_PYTHON_DATEUTIL
-	help
-	  Let your Python tests travel through time
-
-	  https://github.com/spulec/freezegun

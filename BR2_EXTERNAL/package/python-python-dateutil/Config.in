@@ -1,7 +1,7 @@
 # vim: noexpandtab filetype=make
 config BR2_PACKAGE_PYTHON_PYTHON_DATEUTIL
 	bool "python-python-dateutil"
-	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_SIX # (>=1.5); 
 	help
 	  Extensions to the standard Python datetime module
 

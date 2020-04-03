@@ -1,0 +1,7 @@
+# vim: noexpandtab filetype=make
+config BR2_PACKAGE_PYTHON_GMPY
+	bool "python-gmpy"
+	help
+	  GMP or MPIR interface to Python 2.4+ and 3.x
+
+	  http://code.google.com/p/gmpy/

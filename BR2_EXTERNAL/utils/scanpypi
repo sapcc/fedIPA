@@ -72,11 +72,30 @@ class python_package():
         except TypeError:
             self._project_url: str = self._info['project_url']
         
-        # insert a '#' after the first space in every dependency
+        self._dependencies: dict = {}
+        extras_to_ignore: list = ('test', 'tests', 'testing', 'docs', 'dev', 'lint', 'sys_platform == "win32"')
         try:
-            self._dependencies: list = [ str.replace(' ', ' #', 1) for requirement in self._info['requires_dist'] ]
+            for requirement_line in self._info['requires_dist']:
+                dep_include: bool = True
+                try:
+                    package_name_version, package_comment = requirement_line.split(';', 1)
+                except ValueError:
+                    package_name_version: str = requirement_line
+                    package_comment: str = ''
+                # ignore unnecessary dependencies
+                for extra in extras_to_ignore:
+                    if package_comment.find(extra) >= 0:
+                        dep_include: bool = False
+                try:
+                    package_name, package_version = package_name_version.split(' ', 1)
+                except ValueError:
+                    package_name: str = package_name_version
+                    package_version: str = ''
+                if dep_include:
+                    print('  {}'.format(requirement_line))
+                    self._dependencies[package_name.strip()]: str = '{}; {}'.format(package_version.strip(), package_comment.strip())
         except TypeError:
-            self._dependencies: list = []
+            pass
         
         for url in self._urls:
             if url['packagetype'] == 'sdist':
@@ -94,7 +113,7 @@ class python_package():
         self.write_mk_file()
         self.write_hash_file()
         
-        for dependency in self._dependencies:
+        for dependency in self._dependencies.keys():
             try:
                 python_package(dependency)
             except IsADirectoryError:
@@ -104,7 +123,7 @@ class python_package():
         return('{}{}{}'.format(prefix, package.upper().replace('-', '_').replace('.', ''), suffix))
 
     def write_config_in(self):
-        dependencies: list = self._dependencies
+        dependencies: dict = self._dependencies
         name: str = self._name
         package_dir: str = self._package_dir
         project_url: str = self._project_url
@@ -116,8 +135,8 @@ class python_package():
             f.write('\tbool "{}"\n'.format(name))
             if python_version != '':
                 f.write('\tdepends on BR2_PACKAGE_PYTHON{}\n'.format(python_version.replace('2', '')))
-            for dependency in dependencies:
-                f.write('\tselect {}\n'.format(self._escape_for_makefile(package=dependency, prefix='BR2_PACKAGE_PYTHON_')))
+            for dependency in dependencies.keys():
+                f.write('\tselect {} # {}\n'.format(self._escape_for_makefile(package=dependency, prefix='BR2_PACKAGE_PYTHON_'), dependencies[dependency]))
             f.write('\thelp\n')
             f.write('\t  {}\n\n\t  {}\n'.format(summary, project_url))
             

@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_BLURB
-	bool "python-blurb"
-	help
-	  Command-line tool to manage CPython Misc/NEWS.d entries.
-
-	  https://github.com/python/core-workflow/tree/master/blurb

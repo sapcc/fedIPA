@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_BABEL
-	bool "python-Babel"
-	select BR2_PACKAGE_PYTHON_PYTZ
-	help
-	  Collection of utilities that assist with internationalizing and localizing Python applications.
-	  
-	  http://babel.pocoo.org/

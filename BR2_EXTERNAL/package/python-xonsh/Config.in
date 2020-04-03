@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_XONSH
-	bool "python-xonsh"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  Python-powered, cross-platform, Unix-gazing shell
-
-	  https://github.com/xonsh/xonsh

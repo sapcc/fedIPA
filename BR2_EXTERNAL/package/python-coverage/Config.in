@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_COVERAGE
-	bool "python-coverage"
-	select BR2_PACKAGE_PYTHON_TOML
-	help
-	  Code coverage measurement for Python
-
-	  https://github.com/nedbat/coveragepy

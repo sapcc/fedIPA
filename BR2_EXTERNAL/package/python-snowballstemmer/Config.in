@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_SNOWBALLSTEMMER
-	bool "python-snowballstemmer"
-	help
-	  This package provides 26 stemmers for 25 languages generated from Snowball algorithms.
-
-	  https://github.com/snowballstem/snowball

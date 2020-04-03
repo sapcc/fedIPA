@@ -2,9 +2,9 @@
 config BR2_PACKAGE_PYTHON_OSLOI18N
 	bool "python-oslo.i18n"
 	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_PBR
-	select BR2_PACKAGE_PYTHON_BABEL
-	select BR2_PACKAGE_PYTHON_SIX
+	select BR2_PACKAGE_PYTHON_PBR # (!=2.1.0,>=2.0.0); 
+	select BR2_PACKAGE_PYTHON_BABEL # (!=2.4.0,>=2.3.4); 
+	select BR2_PACKAGE_PYTHON_SIX # (>=1.10.0); 
 	help
 	  Oslo i18n library
 

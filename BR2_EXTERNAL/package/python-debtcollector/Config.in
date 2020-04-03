@@ -2,9 +2,9 @@
 config BR2_PACKAGE_PYTHON_DEBTCOLLECTOR
 	bool "python-debtcollector"
 	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_PBR
-	select BR2_PACKAGE_PYTHON_SIX
-	select BR2_PACKAGE_PYTHON_WRAPT
+	select BR2_PACKAGE_PYTHON_PBR # (!=2.1.0,>=2.0.0); 
+	select BR2_PACKAGE_PYTHON_SIX # (>=1.10.0); 
+	select BR2_PACKAGE_PYTHON_WRAPT # (>=1.7.0); 
 	help
 	  A collection of Python deprecation patterns and strategies that help you collect your technical debt in a non-destructive manner.
 

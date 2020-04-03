@@ -1,9 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYDOCSTYLE
-	bool "python-pydocstyle"
-	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_SNOWBALLSTEMMER
-	help
-	  Python docstring style checker
-
-	  https://github.com/PyCQA/pydocstyle/

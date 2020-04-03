@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYGMENTS_GITHUB_LEXERS
-	bool "python-pygments-github-lexers"
-	help
-	  Pygments Github custom lexers.
-
-	  https://github.com/liluo/pygments-github-lexers

@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_ELEMENTPATH
-	bool "python-elementpath"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  XPath 1.0/2.0 parsers and selectors for ElementTree and lxml
-
-	  https://github.com/sissaschool/elementpath

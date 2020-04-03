@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTEST_BLACK
-	bool "python-pytest-black"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  A pytest plugin to enable format checking with black
-
-	  https://github.com/shopkeep/pytest-black

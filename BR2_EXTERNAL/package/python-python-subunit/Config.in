@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_SUBUNIT
-	bool "python-python-subunit"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  Python implementation of subunit test streaming protocol
-
-	  http://launchpad.net/subunit

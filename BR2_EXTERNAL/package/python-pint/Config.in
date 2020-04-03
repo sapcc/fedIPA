@@ -1,9 +1,10 @@
 # vim: noexpandtab filetype=make
 config BR2_PACKAGE_PYTHON_PINT
 	bool "python-pint"
-	select BR2_PACKAGE_PYTHON_NUMPY
-	select BR2_PACKAGE_PYTHON_SETUPTOOLS
-	select BR2_PACKAGE_PYTHON_UNCERTAINTIES
+	depends on BR2_PACKAGE_PYTHON3
+	select BR2_PACKAGE_PYTHON_NUMPY # (>=1.14); extra == 'numpy'
+	select BR2_PACKAGE_PYTHON_SETUPTOOLS # ; 
+	select BR2_PACKAGE_PYTHON_UNCERTAINTIES # (>=3.0); extra == 'uncertainties'
 	help
 	  Physical quantities module
 

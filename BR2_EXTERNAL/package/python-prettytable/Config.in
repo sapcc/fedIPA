@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PRETTYTABLE
-	bool "python-prettytable"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  A simple Python library for easily displaying tabular data in a visually appealing ASCII table format.
-
-	  http://code.google.com/p/prettytable/

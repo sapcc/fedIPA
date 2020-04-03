@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTEST_ENV
-	bool "python-pytest-env"
-	help
-	  py.test plugin that allows you to add environment variables.
-
-	  https://github.com/MobileDynasty/pytest-env

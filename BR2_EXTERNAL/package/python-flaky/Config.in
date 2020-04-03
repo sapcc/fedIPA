@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_FLAKY
-	bool "python-flaky"
-	help
-	  Plugin for nose or pytest that automatically reruns flaky tests.
-
-	  https://github.com/box/flaky
