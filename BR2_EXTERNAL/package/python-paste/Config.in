@@ -3,7 +3,6 @@ config BR2_PACKAGE_PYTHON_PASTE
 	bool "python-paste"
 	depends on BR2_PACKAGE_PYTHON3
 	select BR2_PACKAGE_PYTHON_SIX # (>=1.4.0); 
-	select BR2_PACKAGE_PYTHON_PYTHON_OPENID # ; extra == 'openid'
 	help
 	  Tools for using a Web Server Gateway Interface stack
 

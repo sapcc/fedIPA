@@ -1,7 +1,6 @@
 # vim: noexpandtab filetype=make
 config BR2_PACKAGE_PYTHON_PASTEDEPLOY
 	bool "python-pastedeploy"
-	select BR2_PACKAGE_PYTHON_PASTE # ; extra == 'paste'
 	help
 	  Load, configure, and compose WSGI applications and servers
 

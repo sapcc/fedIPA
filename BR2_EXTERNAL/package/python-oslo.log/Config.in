@@ -11,9 +11,7 @@ config BR2_PACKAGE_PYTHON_OSLOLOG
 	select BR2_PACKAGE_PYTHON_OSLOSERIALIZATION # (>=2.25.0); 
 	select BR2_PACKAGE_PYTHON_DEBTCOLLECTOR # (>=1.19.0); 
 	select BR2_PACKAGE_PYTHON_PYTHON_DATEUTIL # (>=2.7.0); 
-	select BR2_PACKAGE_PYTHON_MONOTONIC # (>=1.4); (python_version<'3.3')
 	select BR2_PACKAGE_PYTHON_PYINOTIFY # (>=0.9.6); (sys_platform!='win32' and sys_platform!='darwin' and sys_platform!='sunos5')
-	select BR2_PACKAGE_PYTHON_FIXTURES # (>=3.0.0); extra == 'fixtures'
 	select BR2_PACKAGE_PYTHON_SYSTEMD_PYTHON # (>=234); extra == 'systemd'
 	help
 	  oslo.log library

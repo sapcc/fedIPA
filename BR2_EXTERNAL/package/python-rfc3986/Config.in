@@ -1,7 +1,6 @@
 # vim: noexpandtab filetype=make
 config BR2_PACKAGE_PYTHON_RFC3986
 	bool "python-rfc3986"
-	select BR2_PACKAGE_PYTHON_IDNA # ; extra == 'idna2008'
 	help
 	  Validating URI References per RFC 3986
 

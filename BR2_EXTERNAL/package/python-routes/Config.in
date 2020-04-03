@@ -3,7 +3,6 @@ config BR2_PACKAGE_PYTHON_ROUTES
 	bool "python-routes"
 	select BR2_PACKAGE_PYTHON_REPOZELRU # (>=0.3); 
 	select BR2_PACKAGE_PYTHON_SIX # ; 
-	select BR2_PACKAGE_PYTHON_WEBOB # ; extra == 'middleware'
 	help
 	  Routing Recognition and Generation Tools
 
