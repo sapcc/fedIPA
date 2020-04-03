@@ -120,7 +120,7 @@ class python_package():
                 pass
     
     def _escape_for_makefile(self, package: str, prefix: str='', suffix: str='') -> str:
-        return('{}{}{}'.format(prefix, package.upper().replace('-', '_').replace('.', ''), suffix))
+        return('{}{}{}'.format(prefix, package.upper().replace('-', '_').replace('.', '_'), suffix))
 
     def write_config_in(self):
         dependencies: dict = self._dependencies
