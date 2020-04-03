@@ -5,8 +5,6 @@ config BR2_PACKAGE_PYTHON_MOCK
 	select BR2_PACKAGE_PYTHON_WHEEL
 	select BR2_PACKAGE_PYTHON_BLURB
 	select BR2_PACKAGE_PYTHON_SPHINX
-	select BR2_PACKAGE_PYTHON_PYTEST
-	select BR2_PACKAGE_PYTHON_PYTEST_COV
 	help
 	  Rolling backport of unittest.mock for all Pythons
 

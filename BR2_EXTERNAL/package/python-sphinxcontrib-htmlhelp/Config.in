@@ -5,8 +5,6 @@ config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_HTMLHELP
 	select BR2_PACKAGE_PYTHON_FLAKE8
 	select BR2_PACKAGE_PYTHON_MYPY
 	select BR2_PACKAGE_PYTHON_DOCUTILS_STUBS
-	select BR2_PACKAGE_PYTHON_PYTEST
-	select BR2_PACKAGE_PYTHON_HTML5LIB
 	help
 	  sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files
 

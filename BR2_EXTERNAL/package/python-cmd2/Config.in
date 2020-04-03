@@ -21,13 +21,6 @@ config BR2_PACKAGE_PYTHON_CMD2
 	select BR2_PACKAGE_PYTHON_INVOKE
 	select BR2_PACKAGE_PYTHON_TWINE
 	select BR2_PACKAGE_PYTHON_MOCK
-	select BR2_PACKAGE_PYTHON_CODECOV
-	select BR2_PACKAGE_PYTHON_COVERAGE
-	select BR2_PACKAGE_PYTHON_PYTEST
-	select BR2_PACKAGE_PYTHON_PYTEST_COV
-	select BR2_PACKAGE_PYTHON_PYTEST_MOCK
-	select BR2_PACKAGE_PYTHON_MOCK
-	select BR2_PACKAGE_PYTHON_GNUREADLINE
 	help
 	  cmd2 - quickly build feature-rich and user-friendly interactive command line applications in Python
 

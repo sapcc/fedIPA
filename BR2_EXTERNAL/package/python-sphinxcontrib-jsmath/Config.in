@@ -2,9 +2,6 @@
 config BR2_PACKAGE_PYTHON_SPHINXCONTRIB_JSMATH
 	bool "python-sphinxcontrib-jsmath"
 	depends on BR2_PACKAGE_PYTHON3
-	select BR2_PACKAGE_PYTHON_PYTEST
-	select BR2_PACKAGE_PYTHON_FLAKE8
-	select BR2_PACKAGE_PYTHON_MYPY
 	help
 	  A sphinx extension which renders display math in HTML via JavaScript
 
