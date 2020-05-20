@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_PYTHON_OPENID
-	bool "python-python-openid"
-	help
-	  OpenID support for servers and consumers.
-
-	  http://github.com/openid/python-openid

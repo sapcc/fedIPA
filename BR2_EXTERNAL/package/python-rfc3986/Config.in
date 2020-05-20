@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_RFC3986
-	bool "python-rfc3986"
-	help
-	  Validating URI References per RFC 3986
-
-	  http://rfc3986.readthedocs.io

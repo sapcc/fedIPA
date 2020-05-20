@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_REPOZELRU
-	bool "python-repoze.lru"
-	help
-	  A tiny LRU cache implementation and decorator
-
-	  http://www.repoze.org

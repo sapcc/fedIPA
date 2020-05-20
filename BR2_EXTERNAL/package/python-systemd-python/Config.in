@@ -1,7 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_SYSTEMD_PYTHON
-	bool "python-systemd-python"
-	help
-	  Python interface for libsystemd
-
-	  https://github.com/systemd/python-systemd

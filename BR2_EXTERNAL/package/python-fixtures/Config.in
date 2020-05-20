@@ -1,8 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_FIXTURES
-	bool "python-fixtures"
-	depends on BR2_PACKAGE_PYTHON3
-	help
-	  Fixtures, reusable state for writing clean tests and more.
-
-	  https://launchpad.net/python-fixtures

@@ -1,9 +1,0 @@
-# vim: noexpandtab filetype=make
-config BR2_PACKAGE_PYTHON_STEVEDORE
-	bool "python-stevedore"
-	select BR2_PACKAGE_PYTHON_PBR # (!=2.1.0,>=2.0.0); 
-	select BR2_PACKAGE_PYTHON_SIX # (>=1.10.0); 
-	help
-	  Manage dynamic plugins for Python applications
-
-	  https://docs.openstack.org/stevedore/latest/
