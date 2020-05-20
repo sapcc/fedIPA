@@ -1,0 +1,17 @@
+[Distribution]
+Distribution=fedora
+Release=31
+
+[Output]
+Format=directory
+
+[Packages]
+WithNetwork=true
+BuildPackages=
+    gcc
+    python3-pip
+Packages=
+    kernel
+    linux-firmware
+    python3
+    systemd
