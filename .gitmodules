@@ -1,3 +1,4 @@
 [submodule "mkosi"]
 	path = mkosi
 	url = https://github.com/systemd/mkosi.git
+	branch = master
