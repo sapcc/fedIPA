@@ -1,0 +1,10 @@
+[Match]
+Name=!lo
+
+[Network]
+DHCP=true
+LinkLocalAddressing=fallback
+LLDP=true
+EmitLLDP=true
+MulticastDNS=true
+LLMNR=true
