@@ -1,3 +1,4 @@
 #!/bin/bash
+# vim: expandtab:ts=4:sw=4:ft=bash
 pip3 install --root "$DESTDIR" --compile --ignore-installed --no-warn-script-location ironic-python-agent
 find "$DESTDIR" -type f -name '*.py' -delete

@@ -1,5 +1,5 @@
-# vim: expandtab:ts=4:sw=4:ft=bash
 #!/bin/bash
+# vim: expandtab:ts=4:sw=4:ft=bash
 
 # make the image smaller
 declare -a dirs_to_delete=()
