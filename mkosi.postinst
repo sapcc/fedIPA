@@ -1,0 +1,10 @@
+# vim: expandtab:ts=4:sw=4:ft=bash
+#!/bin/bash
+
+# make the image smaller
+declare -a dirs_to_delete=()
+dirs_to_delete+=('/boot') # not needed at all
+
+if ((${#dirs_to_delete[@]} > 0)); then
+    rm -rf "${dirs_to_delete[@]}"
+fi
