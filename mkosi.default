@@ -10,6 +10,7 @@ Format=directory
 WithNetwork=true
 BuildPackages=
     gcc
+    python3-devel
     python3-pip
 Packages=
     kernel
