@@ -44,6 +44,7 @@ function check() {
 
 function depends() {
     echo python
+    echo dbus-broker
     echo systemd-initrd
     echo systemd-networkd
     echo bash
