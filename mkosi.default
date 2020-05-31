@@ -4,17 +4,31 @@ Distribution=fedora
 Release=31
 
 [Output]
-Format=directory
+Format=gpt_xfs
+Hostname=tinyipa
 
 [Packages]
 SourceFileTransfer=mount
+SkipFinalPhase=true
 WithNetwork=true
 BuildPackages=
+    dracut
+    dracut-network
+    efibootmgr
     gcc
+    gdisk
+    hdparm
+    iscsi-initiator-utils
+    kernel
+    lshw
+    mdadm
+    parted
+    python3
     python3-devel
     python3-pip
-Packages=
-    kernel
-    linux-firmware
-    python3
+    python3-rpm
+    qemu-img
+    smartmontools
+    binutils
     systemd
+    util-linux
