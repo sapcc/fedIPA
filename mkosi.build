@@ -25,7 +25,7 @@ os_release_env: dict = {}
 with os_release.open("r") as f:
     for line in f:
         (key, seperator, value) = line.partition("=")
-        os_release_env[key]: str = value
+        os_release_env[key.strip()]: str = value.strip()
 
 tinyipa_initramfs: Path = Path(
     output_dir, "tinyipa.{}.initramfs".format(os_release_env["ID"])
