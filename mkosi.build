@@ -24,7 +24,7 @@ if not os_release.exists():
 os_release_env: dict = {}
 with os_release.open("r") as f:
     for line in f:
-        (key, seperator, value) = f.partition("=")
+        (key, seperator, value) = line.partition("=")
         os_release_env[key]: str = value
 
 tinyipa_initramfs: Path = Path(
