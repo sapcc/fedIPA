@@ -8,8 +8,6 @@ import venv
 import rpm
 
 output_dir: Path = Path(environ["BUILDDIR"])
-tinyipa_initramfs: Path = Path(output_dir, "tinyipa.initramfs")
-tinyipa_kernel: Path = Path(output_dir, "tinyipa.kernel")
 virtual_env_dir: Path = Path("/ipa")
 python_bin_dir: Path = Path(virtual_env_dir, "bin/python3")
 dracut_module_dir: Path = Path(
@@ -18,6 +16,23 @@ dracut_module_dir: Path = Path(
 dracut_module_setup_script: Path = Path(dracut_module_dir, "module-setup.sh")
 # even though pip is a python module, the preferred interface is via the CLI
 pip: list = [python_bin_dir, "-m", "pip"]
+
+# get some information about the system we're running on
+os_release: Path = Path("/etc/os-release")
+if not os_release.exists():
+    os_release: Path = Path("/usr/lib/os-release")
+os_release_env: dict = {}
+with os_release.open("r") as f:
+    for line in f:
+        (key, seperator, value) = f.partition("=")
+        os_release_env[key]: str = value
+
+tinyipa_initramfs: Path = Path(
+    output_dir, "tinyipa.{}.initramfs".format(os_release_env["ID"])
+)
+tinyipa_kernel: Path = Path(
+    output_dir, "tinyipa.{}.kernel".format(os_release_env["ID"])
+)
 
 # only one kernel will be installed.
 # we need this variable to instruct dracut not to use `uname`,
