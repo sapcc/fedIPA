@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 # vim: smarttab:expandtab:ts=4:sw=4:ft=python
 
-import sys
 from os import environ
 from subprocess import run
 from pathlib import Path
-import compileall
 import venv
 import rpm
 
@@ -14,15 +12,20 @@ tinyipa_initramfs: Path = Path(output_dir, "tinyipa.initramfs")
 tinyipa_kernel: Path = Path(output_dir, "tinyipa.kernel")
 virtual_env_dir: Path = Path("/ipa")
 python_bin_dir: Path = Path(virtual_env_dir, "bin/python3")
-dracut_module_dir: Path = Path("/usr/lib/dracut/modules.d/49ironic-python-agent")
+dracut_module_dir: Path = Path(
+    "/usr/lib/dracut/modules.d/49ironic-python-agent"
+)
 dracut_module_setup_script: Path = Path(dracut_module_dir, "module-setup.sh")
 # even though pip is a python module, the preferred interface is via the CLI
 pip: list = [python_bin_dir, "-m", "pip"]
 
 # only one kernel will be installed.
-# we need this variable to instruct dracut not to use `uname`, as this returns the wrong value in a container
+# we need this variable to instruct dracut not to use `uname`,
+# as this returns the wrong value in a container
 for hdr in rpm.TransactionSet().dbMatch("name", "kernel"):
-    kernel_version: str = "{}-{}.{}".format(hdr[rpm.RPMTAG_VERSION], hdr[rpm.RPMTAG_RELEASE], hdr[rpm.RPMTAG_ARCH])
+    kernel_version: str = "{}-{}.{}".format(
+        hdr[rpm.RPMTAG_VERSION], hdr[rpm.RPMTAG_RELEASE], hdr[rpm.RPMTAG_ARCH]
+    )
     kernel_path: Path = Path("/usr/lib/modules", kernel_version, "vmlinuz")
 
 # creating the virtual env to install IPA into
@@ -30,15 +33,36 @@ environ["VIRTUAL_ENV"]: str = str(virtual_env_dir)
 venv.create(virtual_env_dir, clear=True, symlinks=True, with_pip=True)
 
 # install the wanted application from upstream
-run(pip + [ "install", "--ignore-installed", "--no-warn-script-location", "ironic-python-agent"], check=True)
+run(
+    pip
+    + [
+        "install",
+        "--ignore-installed",
+        "--no-warn-script-location",
+        "ironic-python-agent",
+    ],
+    check=True,
+)
 
 # create dracut module-setup.sh file with the proper file list
 dracut_module_dir.mkdir(parents=True, exist_ok=True)
 with dracut_module_setup_script.open("w") as dracut_setup:
     # write the header of the file
-    dracut_setup.write("""#!/bin/bash
+    dracut_setup.write(
+        """#!/bin/bash
 function check() {
-    require_binaries qemu-img dd sgdisk blockdev wipefs parted partprobe efibootmgr findfs lshw hdparm smartctl
+    require_binaries qemu-img \\
+                     dd \\
+                     sgdisk \\
+                     blockdev \\
+                     wipefs \\
+                     parted \\
+                     partprobe \\
+                     efibootmgr \\
+                     findfs \\
+                     lshw \\
+                     hdparm \\
+                     smartctl
     return 0
 }
 
@@ -55,17 +79,24 @@ function depends() {
     return 0
 }
 
-""")
-    dracut_setup.write("""function install() {
-    inst_multiple qemu-img dd sgdisk blockdev wipefs parted partprobe efibootmgr findfs lshw hdparm smartctl
-""")
+"""
+    )
+    dracut_setup.write(
+        """function install() {
+    inst_multiple qemu-img dd sgdisk blockdev wipefs
+    inst_multiple parted partprobe efibootmgr findfs lshw hdparm smartctl
+"""
+    )
     for venv_file in virtual_env_dir.rglob("*"):
         dracut_setup.write("    inst '{}'\n".format(str(venv_file)))
-    dracut_setup.write("""    inst_simple "${moddir}/ironic-python-agent.service" "${systemdsystemunitdir}/ironic-python-agent.service"
+    dracut_setup.write(
+        """    inst_simple "${moddir}/ironic-python-agent.service" \\
+                           "${systemdsystemunitdir}/ironic-python-agent.service"
     systemctl -q --root "$initdir" enable ironic-python-agent.service
     systemctl -q --root "$initdir" set-default multi-user.target
 }
-""")
+"""
+    )
 
 # create the initramfs
 dracut_options: list = []
@@ -74,7 +105,9 @@ dracut_options.append("--verbose")
 dracut_options.append("--force")
 dracut_options.extend(["--kver", kernel_version])
 dracut_options.extend(["--modules", "bash systemd ironic-python-agent"])
-dracut_options.extend(["--install", "/etc/systemd/network/all-links-dhcp.network"])
+dracut_options.extend(
+    ["--install", "/etc/systemd/network/all-links-dhcp.network"]
+)
 dracut_options.append("--nofscks")
 dracut_options.append("--nomdadmconf")
 dracut_options.append("--nolvmconf")
@@ -88,5 +121,6 @@ run(dracut_options)
 tinyipa_initramfs.chmod(0o644)
 
 # capture the kernel
-# as $BUILDDIR is mounted in with a bind mount, we need to read/write the file here, a simple mv/rename won't work
+# as $BUILDDIR is mounted in with a bind mount, we need to read/write the file
+# here, a simple mv/rename won't work
 tinyipa_kernel.write_bytes(kernel_path.read_bytes())
