@@ -1,0 +1,22 @@
+- repo: https://github.com/psf/black
+  rev: master
+  hooks:
+    - id: black
+      language_version: python3.7
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: master  # Use the ref you want to point at
+  hooks:
+    - id: trailing-whitespace
+    - id: check-ast
+    - id: check-executables-have-shebangs
+    - id: check-merge-conflict
+    - id: end-of-file-fixer
+    - id: fix-encoding-pragma
+      args: [
+        "--remove"
+      ]
+    - id: trailing-whitespace
+- repo: https://gitlab.com/pycqa/flake8
+  rev: master
+  hooks:
+    - id: flake8

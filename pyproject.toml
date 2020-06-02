@@ -1,0 +1,15 @@
+[tool.black]
+line-length = 79
+include = '''
+/(
+    \.pyi?$
+  | mkosi.build$
+)/
+'''
+exclude = '''
+/(
+    \.git
+  | \.mkosi
+  | \.mkosi.builddir
+)/
+'''
