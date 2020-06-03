@@ -9,7 +9,7 @@ Hostname=tinyipa
 
 [Packages]
 SourceFileTransfer=mount
-SkipFinalPhase=true
+SkipFinalPhase=false
 WithNetwork=true
 BuildPackages=
     dracut
