@@ -20,11 +20,11 @@ clean:
 
 .PHONY: build
 build:
-	$(mkosi) build --default mkosi.file/mkosi.$(DISTRIBUTION)
+	$(mkosi) --default mkosi.file/mkosi.$(DISTRIBUTION) build
 
 .PHONY: build-all
 build-all:
-	$(mkosi) build --all
+	$(mkosi) --all build
 
 .PHONY: shell
 shell:
