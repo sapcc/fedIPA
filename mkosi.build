@@ -94,6 +94,8 @@ function depends() {
     echo dbus-broker
     echo systemd-initrd
     echo systemd-networkd
+    echo kernel-firmware
+    echo kernel-firmware-extra
     echo bash
     echo mdraid
     echo iscsi
