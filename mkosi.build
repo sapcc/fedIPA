@@ -102,6 +102,7 @@ function depends() {
     echo iscsi
     echo debug
     echo base
+    echo ncurses-base
     return 0
 }
 
