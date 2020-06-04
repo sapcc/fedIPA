@@ -95,8 +95,8 @@ function depends() {
     echo systemd-initrd
     echo systemd-networkd
     echo systemd-resolved
-    echo kernel-firmware
-    echo kernel-firmware-extra
+    echo kernel-modules
+    echo kernel-modules-extra
     echo bash
     echo mdraid
     echo iscsi
