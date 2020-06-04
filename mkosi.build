@@ -112,6 +112,7 @@ function depends() {
         """function install() {
     inst_multiple qemu-img dd sgdisk blockdev wipefs
     inst_multiple parted partprobe efibootmgr findfs lshw hdparm smartctl
+    inst_multiple curl wget dig nslookup less lscpu lsusb lspci
 """
     )
     for venv_file in virtual_env_dir.rglob("*"):

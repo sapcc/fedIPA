@@ -12,6 +12,9 @@ SourceFileTransfer=mount
 SkipFinalPhase=false
 WithNetwork=true
 BuildPackages=
+    bind-utils
+    binutils
+    curl
     dracut
     dracut-network
     efibootmgr
@@ -20,16 +23,19 @@ BuildPackages=
     hdparm
     iscsi-initiator-utils
     kernel
+    less
     lshw
     mdadm
     ncurses-base
     parted
+    pciutils
     python3
     python3-devel
     python3-pip
     python3-rpm
     qemu-img
     smartmontools
-    binutils
     systemd
+    usbutils
     util-linux
+    wget
