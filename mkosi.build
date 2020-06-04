@@ -77,7 +77,15 @@ function check() {
                      findfs \\
                      lshw \\
                      hdparm \\
-                     smartctl
+                     smartctl \\
+                     curl \\
+                     wget \\
+                     dig \\
+                     nslookup \\
+                     less \\
+                     lscpu \\
+                     lsusb \\
+                     lspci
     return 0
 }
 
