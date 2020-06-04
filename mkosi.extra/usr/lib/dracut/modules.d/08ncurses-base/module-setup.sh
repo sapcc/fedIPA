@@ -171,4 +171,36 @@ function install() {
     inst /usr/share/terminfo/x/xterm-xfree86
     inst /usr/share/terminfo/x/xterm-xi
     inst /usr/share/terminfo/x/xterms
+    # files from rpm:ncurses-libs
+    inst /usr/lib64/libform.so.6
+    inst /usr/lib64/libform.so.6.1
+    inst /usr/lib64/libformw.so.6
+    inst /usr/lib64/libformw.so.6.1
+    inst /usr/lib64/libmenu.so.6
+    inst /usr/lib64/libmenu.so.6.1
+    inst /usr/lib64/libmenuw.so.6
+    inst /usr/lib64/libmenuw.so.6.1
+    inst /usr/lib64/libncurses.so.6
+    inst /usr/lib64/libncurses.so.6.1
+    inst /usr/lib64/libncursesw.so.6
+    inst /usr/lib64/libncursesw.so.6.1
+    inst /usr/lib64/libpanel.so.6
+    inst /usr/lib64/libpanel.so.6.1
+    inst /usr/lib64/libpanelw.so.6
+    inst /usr/lib64/libpanelw.so.6.1
+    inst /usr/lib64/libtic.so.6
+    inst /usr/lib64/libtic.so.6.1
+    inst /usr/lib64/libtinfo.so.6
+    inst /usr/lib64/libtinfo.so.6.1
+    # files from rpm:ncurses
+    inst captoinfo
+    inst clear
+    inst infocmp
+    inst infotocap
+    inst reset
+    inst tabs
+    inst tic
+    inst toe
+    inst tput
+    inst tset
 }
