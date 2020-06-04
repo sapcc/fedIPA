@@ -38,7 +38,7 @@ test:
 		-initrd mkosi.builddir/tinyipa.$(DISTRIBUTION).initramfs \
 		-nographic \
 		-display vnc=0.0.0.0:0 \
-		-append "console=ttyS0 rd.shell rd.systemd.debug_shell systemd.debug_shell"
+		-append "console=ttyS0"
 
 .PHONY: git-submodule-init
 git-submodule-init:
