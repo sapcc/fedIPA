@@ -34,6 +34,7 @@ BuildPackages=
     python3-pip
     python3-rpm
     qemu-img
+    rpm
     smartmontools
     systemd
     usbutils
