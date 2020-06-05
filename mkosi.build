@@ -107,6 +107,7 @@ function depends() {
     echo debug
     echo base
     echo ncurses-base
+    echo ca-certificates
     return 0
 }
 
