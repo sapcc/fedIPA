@@ -8,7 +8,6 @@ function check() {
 
 function depends() {
     echo setup
-    echo glibc
     return 0
 }
 

@@ -11,6 +11,6 @@ function depends() {
 }
 
 function install() {
-    mapfile -t _rpm_files < <(rpm -ql setup)
+    mapfile -t _rpm_files < <(rpm -ql coreutils glibc setup)
     inst_multiple -o "${_rpm_files[@]}"
 }
