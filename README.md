@@ -13,7 +13,7 @@ Based upon $distribution (right now Fedora 31) this tooling creates with dracut 
 * dnf
 * make
 
-Command to install requirements on Fedora 
+Command to install requirements on Fedora
 ```shell
 sudo dnf install git python3 make systemd-container
 ```

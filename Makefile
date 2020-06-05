@@ -31,7 +31,7 @@ shell:
 	$(mkosi) shell
 
 .PHONY: test
-test: 
+test:
 	$(qemu) -accel kvm \
 		-m 1024 \
 		-kernel mkosi.builddir/tinyipa.$(DISTRIBUTION).kernel \

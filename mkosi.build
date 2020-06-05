@@ -137,7 +137,10 @@ dracut_options.extend(
     ["--install", "/etc/systemd/network/all-links-dhcp.network"]
 )
 dracut_options.extend(
-    ["--install", "/etc/systemd/system/debug-shell.service.d/20-exec-bash.conf"]
+    [
+        "--install",
+        "/etc/systemd/system/debug-shell.service.d/20-exec-bash.conf",
+    ]
 )
 dracut_options.append("--nofscks")
 dracut_options.append("--nomdadmconf")
