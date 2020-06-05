@@ -99,6 +99,7 @@ function depends() {
     echo systemd-initrd
     echo systemd-networkd
     echo systemd-resolved
+    echo additional-systemd-config
     echo kernel-modules
     echo kernel-modules-extra
     echo bash
