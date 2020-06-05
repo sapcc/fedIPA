@@ -8,6 +8,7 @@ import venv
 import rpm
 
 output_dir: Path = Path(environ["BUILDDIR"])
+pip_cache_dir: Path = Path(output_dir, ".pip_cache")
 virtual_env_dir: Path = Path("/ipa")
 python_bin_dir: Path = Path(virtual_env_dir, "bin/python3")
 dracut_module_dir: Path = Path(
@@ -48,12 +49,15 @@ environ["VIRTUAL_ENV"]: str = str(virtual_env_dir)
 venv.create(virtual_env_dir, clear=True, symlinks=True, with_pip=True)
 
 # install the wanted application from upstream
+pip_cache_dir.mkdir(parents=True, exist_ok=True)
 run(
     pip
     + [
         "install",
         "--ignore-installed",
         "--no-warn-script-location",
+        "--cache-dir",
+        pip_cache_dir,
         "ironic-python-agent",
     ],
     check=True,
