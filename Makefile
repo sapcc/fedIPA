@@ -1,9 +1,11 @@
 ifeq ($(UID),0)
 	mkosi = ./mkosi/mkosi
 	qemu = qemu-system-x86_64
+	rm = rm
 else
 	mkosi = sudo ./mkosi/mkosi
 	qemu = sudo qemu-system-x86_64
+	rm = sudo rm
 endif
 
 DISTRIBUTION ?= fedora
@@ -16,6 +18,7 @@ all: git-submodule-init clean build-all
 
 .PHONY: clean
 clean:
+	$(rm) -rf mkosi.builddir/tinyipa.*
 	$(mkosi) clean
 
 .PHONY: build
