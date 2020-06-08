@@ -70,45 +70,11 @@ with dracut_module_setup_script.open("w") as dracut_setup:
     dracut_setup.write(
         """#!/bin/bash
 function check() {
-    require_binaries qemu-img \\
-                     dd \\
-                     sgdisk \\
-                     blockdev \\
-                     wipefs \\
-                     parted \\
-                     partprobe \\
-                     efibootmgr \\
-                     findfs \\
-                     lshw \\
-                     hdparm \\
-                     smartctl \\
-                     curl \\
-                     wget \\
-                     dig \\
-                     nslookup \\
-                     less \\
-                     lscpu \\
-                     lsusb \\
-                     lspci
     return 0
 }
 
 function depends() {
-    echo python
-    echo dbus-broker
-    echo systemd-initrd
-    echo systemd-networkd
-    echo systemd-resolved
-    echo additional-systemd-config
-    echo kernel-modules
-    echo kernel-modules-extra
-    echo bash
-    echo mdraid
-    echo iscsi
-    echo debug
-    echo base
-    echo ncurses-base
-    echo ca-certificates
+    echo setup-ironic-python-agent
     return 0
 }
 
@@ -116,9 +82,6 @@ function depends() {
     )
     dracut_setup.write(
         """function install() {
-    inst_multiple qemu-img dd sgdisk blockdev wipefs
-    inst_multiple parted partprobe efibootmgr findfs lshw hdparm smartctl
-    inst_multiple curl wget dig nslookup less lscpu lsusb lspci
 """
     )
     for venv_file in virtual_env_dir.rglob("*"):
@@ -127,7 +90,6 @@ function depends() {
         """    inst_simple "${moddir}/ironic-python-agent.service" \\
                            "${systemdsystemunitdir}/ironic-python-agent.service"
     systemctl -q --root "$initdir" enable ironic-python-agent.service
-    systemctl -q --root "$initdir" set-default multi-user.target
 }
 """
     )
@@ -138,16 +100,7 @@ dracut_options.append("/usr/bin/dracut")
 dracut_options.append("--verbose")
 dracut_options.append("--force")
 dracut_options.extend(["--kver", kernel_version])
-dracut_options.extend(["--modules", "bash systemd ironic-python-agent"])
-dracut_options.extend(
-    ["--install", "/etc/systemd/network/all-links-dhcp.network"]
-)
-dracut_options.extend(
-    [
-        "--install",
-        "/etc/systemd/system/debug-shell.service.d/20-exec-bash.conf",
-    ]
-)
+dracut_options.extend(["--modules", "ironic-python-agent"])
 dracut_options.append("--nofscks")
 dracut_options.append("--nomdadmconf")
 dracut_options.append("--nolvmconf")
