@@ -1,8 +1,6 @@
 [Unit]
 Wants=network-online.target
-Wants=debug-shell.service
 After=network-online.target
-After=debug-shell.service
 
 [Service]
 Type=oneshot
