@@ -12,9 +12,12 @@ SourceFileTransfer=mount
 SkipFinalPhase=false
 WithNetwork=true
 BuildPackages=
+    bash-completion
     bind-utils
     binutils
     curl
+    dbus-libs
+    dbus-tools
     dracut
     dracut-network
     efibootmgr
@@ -27,6 +30,7 @@ BuildPackages=
     lshw
     mdadm
     ncurses-base
+    pam
     parted
     pciutils
     python3
@@ -37,6 +41,7 @@ BuildPackages=
     rpm
     smartmontools
     systemd
+    systemd-pam
     usbutils
     util-linux
     wget
