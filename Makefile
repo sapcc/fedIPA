@@ -36,7 +36,7 @@ shell:
 .PHONY: test
 test:
 	$(qemu) -accel kvm \
-		-m 1024 \
+		-m 2048 \
 		-kernel mkosi.builddir/tinyipa.$(DISTRIBUTION).kernel \
 		-initrd mkosi.builddir/tinyipa.$(DISTRIBUTION).initramfs \
 		-nographic \
