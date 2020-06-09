@@ -27,6 +27,7 @@ BuildPackages=
     hdparm
     ipmitool
     iscsi-initiator-utils
+    kernel
     kernel-core
     kernel-modules
     kmod
