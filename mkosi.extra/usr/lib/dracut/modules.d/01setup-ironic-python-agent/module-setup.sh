@@ -25,6 +25,7 @@ function install() {
     _packages_to_install+=("less")
     _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils")
     _packages_to_install+=("python3" "python3-libs")
+    _packages_to_install+=("htop" "nano" "strace")
     declare -a _rpm_files=()
     for dir in bin lib lib64 sbin; do
         mkdir -p "${initdir}/usr/${dir}"
