@@ -15,6 +15,7 @@ BuildPackages=
     bash-completion
     bind-utils
     binutils
+    biosdevname
     curl
     dbus-libs
     dbus-tools

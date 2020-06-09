@@ -15,7 +15,7 @@ function install() {
     _packages_to_install+=("fedora-release" "fedora-release-common")
     _packages_to_install+=("kernel-core" "kernel-modules" "kmod" "linux-firmware")
     _packages_to_install+=("gdisk" "iscsi-initiator-utils" "mdadm" "parted" "qemu-img")
-    _packages_to_install+=("systemd" "systemd-libs" "systemd-udev")
+    _packages_to_install+=("biosdevname" "systemd" "systemd-libs" "systemd-udev")
     _packages_to_install+=("dbus-broker" "dbus-common" "dbus-libs" "dbus-tools")
     _packages_to_install+=("ncurses" "ncurses-libs" "ncurses-base")
     _packages_to_install+=("bash" "bash-completion" "pam" "systemd-pam" "libpwquality")
