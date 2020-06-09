@@ -6,7 +6,7 @@ After=network-online.target
 Type=oneshot
 Environment="VIRTUAL_ENV=/ipa"
 Environment="PATH=/ipa/bin:/usr/sbin:/usr/bin"
-ExecStart=/ipa/bin/python3 /ipa/bin/ironic-python-agent
+ExecStart=/ipa/bin/python3 /ipa/bin/ironic-python-agent --debug
 
 [Install]
 WantedBy=multi-user.target
