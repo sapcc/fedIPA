@@ -18,21 +18,29 @@ BuildPackages=
     curl
     dbus-libs
     dbus-tools
+    dmidecode
     dracut
     dracut-network
     efibootmgr
     gcc
     gdisk
     hdparm
+    ipmitool
     iscsi-initiator-utils
-    kernel
+    kernel-core
+    kernel-modules
+    kmod
     less
+    linux-firmware
     lshw
     mdadm
     ncurses-base
+    openssl
+    openssl-libs
     pam
     parted
     pciutils
+    pciutils-libs
     python3
     python3-devel
     python3-pip

@@ -14,7 +14,7 @@ function install() {
     declare -a _packages_to_install=("filesystem" "coreutils" "coreutils-common" "glibc" "glibc-common" "setup" "util-linux")
     _packages_to_install+=("fedora-release" "fedora-release-common")
     _packages_to_install+=("kernel-core" "kernel-modules" "kmod" "linux-firmware")
-    _packages_to_install+=("mdadm" "iscsi-initiator-utils")
+    _packages_to_install+=("gdisk" "iscsi-initiator-utils" "mdadm" "parted" "qemu-img")
     _packages_to_install+=("systemd" "systemd-libs" "systemd-udev")
     _packages_to_install+=("dbus-broker" "dbus-common" "dbus-libs" "dbus-tools")
     _packages_to_install+=("ncurses" "ncurses-libs" "ncurses-base")
@@ -23,7 +23,7 @@ function install() {
     _packages_to_install+=("ca-certificates" "openssl" "openssl-libs")
     _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute")
     _packages_to_install+=("less")
-    _packages_to_install+=("lshw" "pciutils" "pciutils-libs" "usbutils")
+    _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils")
     _packages_to_install+=("python3" "python3-libs")
     declare -a _rpm_files=()
     for dir in bin lib lib64 sbin; do
