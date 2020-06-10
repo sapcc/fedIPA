@@ -66,4 +66,6 @@ function install() {
     inst "${moddir}/20-autologin-getty.conf" "/etc/systemd/system/getty@.service.d/20-autologin-getty.conf"
     mkdir -p "${initdir}/etc/systemd/system/serial-getty@.service.d"
     inst "${moddir}/20-autologin-serial-getty.conf" "/etc/systemd/system/serial-getty@.service.d/20-autologin-serial-getty.conf"
+    mkdir -p "${initdir}/etc/systemd/system/systemd-networkd-wait-online.service.d"
+    inst "${moddir}/20-wait-for-any-device.conf" "/etc/systemd/system/systemd-networkd-wait-online.service.d/20-wait-for-any-device.conf"
 }
