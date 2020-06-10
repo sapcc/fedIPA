@@ -58,41 +58,10 @@ run(
         "--no-warn-script-location",
         "--cache-dir",
         pip_cache_dir,
-        "ironic-python-agent",
+        "ironic-python-agent<2.1",
     ],
     check=True,
 )
-
-# create dracut module-setup.sh file with the proper file list
-dracut_module_dir.mkdir(parents=True, exist_ok=True)
-with dracut_module_setup_script.open("w") as dracut_setup:
-    # write the header of the file
-    dracut_setup.write(
-        """#!/bin/bash
-function check() {
-    return 0
-}
-
-function depends() {
-    echo setup-ironic-python-agent
-    return 0
-}
-
-"""
-    )
-    dracut_setup.write(
-        """function install() {
-"""
-    )
-    for venv_file in virtual_env_dir.rglob("*"):
-        dracut_setup.write("    inst '{}'\n".format(str(venv_file)))
-    dracut_setup.write(
-        """    inst_simple "${moddir}/ironic-python-agent.service" \\
-                           "${systemdsystemunitdir}/ironic-python-agent.service"
-    systemctl -q --root "$initdir" enable ironic-python-agent.service
-}
-"""
-    )
 
 # create the initramfs
 dracut_options: list = []
