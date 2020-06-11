@@ -5,7 +5,7 @@ Release=31
 
 [Output]
 Format=raw_xfs
-Hostname=tinyipa
+Hostname=fedora-ipa
 
 [Packages]
 SourceFileTransfer=mount
