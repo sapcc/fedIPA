@@ -27,7 +27,6 @@ BuildPackages=
     gdisk
     git
     hdparm
-    htop
     ipmitool
     iscsi-initiator-utils
     kernel
@@ -38,7 +37,6 @@ BuildPackages=
     linux-firmware
     lshw
     mdadm
-    nano
     ncurses-base
     openssl
     openssl-libs
@@ -51,9 +49,7 @@ BuildPackages=
     python3-pip
     python3-rpm
     qemu-img
-    rpm
     smartmontools
-    strace
     systemd
     systemd-pam
     usbutils
