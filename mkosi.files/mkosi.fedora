@@ -21,7 +21,6 @@ BuildPackages=
     dbus-tools
     dmidecode
     dracut
-    dracut-network
     efibootmgr
     gcc
     gdisk
