@@ -25,6 +25,7 @@ BuildPackages=
     efibootmgr
     gcc
     gdisk
+    git
     hdparm
     htop
     ipmitool

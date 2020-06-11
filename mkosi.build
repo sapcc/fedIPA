@@ -58,7 +58,7 @@ run(
         "--no-warn-script-location",
         "--cache-dir",
         pip_cache_dir,
-        "ironic-python-agent<2.1",
+        "git+https://github.com/openstack/ironic-python-agent.git@master",
     ],
     check=True,
 )
