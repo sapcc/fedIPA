@@ -51,6 +51,7 @@ BuildPackages=
     smartmontools
     systemd
     systemd-pam
+    systemd-python
     usbutils
     util-linux
     wget
