@@ -1,8 +1,8 @@
-# tinyIPA
+# fedIPA
 
 ## Description
 
-Based upon $distribution (right now Fedora 31) this tooling creates with dracut an initramfs and extracts the kernel for booting a server via iPXE in an OpenStack-Ironic environment.
+Based upon Fedora this tooling creates with dracut an initramfs and extracts the kernel for booting a server via iPXE in an OpenStack-Ironic environment.
 
 ## Requirements
 
@@ -21,8 +21,8 @@ sudo dnf install git python3 make systemd-container
 ## HowTo
 
 ```shell
-git clone https://github.com/killermoehre/tinyipa.git
-cd tinyipa
+git clone https://github.com/killermoehre/fedipa.git
+cd fedipa
 make
 ```
 
