@@ -21,8 +21,8 @@ sudo dnf install git python3 make systemd-container
 ## HowTo
 
 ```shell
-git clone https://github.com/killermoehre/fedipa.git
-cd fedipa
+git clone https://github.com/sapcc/fedIPA.git
+cd fedIPA
 make
 ```
 
