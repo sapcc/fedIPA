@@ -47,11 +47,11 @@ BuildPackages=
     python3-devel
     python3-pip
     python3-rpm
+    python3-systemd
     qemu-img
     smartmontools
     systemd
     systemd-pam
-    systemd-python
     usbutils
     util-linux
     wget
