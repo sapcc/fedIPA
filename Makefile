@@ -18,7 +18,7 @@ all: git-submodule-init clean build-all
 
 .PHONY: clean
 clean:
-	$(rm) -rf mkosi.builddir/tinyipa.*
+	$(rm) -rf mkosi.builddir/fedipa.*
 	$(mkosi) clean
 
 .PHONY: build
@@ -37,8 +37,8 @@ shell:
 test:
 	$(qemu) -accel kvm \
 		-m 2048 \
-		-kernel mkosi.builddir/tinyipa.$(DISTRIBUTION).kernel \
-		-initrd mkosi.builddir/tinyipa.$(DISTRIBUTION).initramfs \
+		-kernel mkosi.builddir/fedipa.kernel \
+		-initrd mkosi.builddir/fedipa.initramfs \
 		-nographic \
 		-display vnc=0.0.0.0:0 \
 		-append "console=ttyS0"
