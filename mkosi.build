@@ -28,11 +28,11 @@ with os_release.open("r") as f:
         (key, seperator, value) = line.partition("=")
         os_release_env[key.strip()]: str = value.strip()
 
-tinyipa_initramfs: Path = Path(
-    output_dir, "tinyipa.{}.initramfs".format(os_release_env["ID"])
+fedipa_initramfs: Path = Path(
+    output_dir, "fedipa.initramfs"
 )
-tinyipa_kernel: Path = Path(
-    output_dir, "tinyipa.{}.kernel".format(os_release_env["ID"])
+fedipa_kernel: Path = Path(
+    output_dir, "fedipa.kernel"
 )
 
 # only one kernel will be installed.
@@ -80,9 +80,9 @@ dracut_options.append("--no-hostonly-default-device")
 dracut_options.append("--no-hostonly-i18n")
 dracut_options.append(tinyipa_initramfs)
 run(dracut_options)
-tinyipa_initramfs.chmod(0o644)
+fedipa_initramfs.chmod(0o644)
 
 # capture the kernel
 # as $BUILDDIR is mounted in with a bind mount, we need to read/write the file
 # here, a simple mv/rename won't work
-tinyipa_kernel.write_bytes(kernel_path.read_bytes())
+fedipa_kernel.write_bytes(kernel_path.read_bytes())
