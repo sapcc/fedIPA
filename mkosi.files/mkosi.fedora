@@ -1,7 +1,7 @@
 # vim: expandtab:ts=4:sw=4:ft=dosini
 [Distribution]
 Distribution=fedora
-Release=32
+Release=34
 
 [Output]
 Format=raw_xfs
