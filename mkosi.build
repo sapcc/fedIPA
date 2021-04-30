@@ -78,7 +78,7 @@ dracut_options.append("--no-hostonly")
 dracut_options.append("--no-hostonly-cmdline")
 dracut_options.append("--no-hostonly-default-device")
 dracut_options.append("--no-hostonly-i18n")
-dracut_options.append(tinyipa_initramfs)
+dracut_options.append(fedipa_initramfs)
 run(dracut_options)
 fedipa_initramfs.chmod(0o644)
 
