@@ -52,6 +52,7 @@ BuildPackages=
     smartmontools
     systemd
     systemd-pam
+    scsi-target-utils
     usbutils
     util-linux
     wget
