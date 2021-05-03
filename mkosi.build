@@ -21,12 +21,12 @@ pip: list = [python_bin_dir, "-m", "pip"]
 # get some information about the system we're running on
 os_release: Path = Path("/etc/os-release")
 if not os_release.exists():
-    os_release: Path = Path("/usr/lib/os-release")
+    os_release = Path("/usr/lib/os-release")
 os_release_env: dict = {}
 with os_release.open("r") as f:
     for line in f:
         (key, seperator, value) = line.partition("=")
-        os_release_env[key.strip()]: str = value.strip()
+        os_release_env[key.strip()] = value.strip()
 
 fedipa_initramfs: Path = Path(
     output_dir, "fedipa.initramfs"
@@ -45,7 +45,7 @@ for hdr in rpm.TransactionSet().dbMatch("name", "kernel"):
     kernel_path: Path = Path("/usr/lib/modules", kernel_version, "vmlinuz")
 
 # creating the virtual env to install IPA into
-environ["VIRTUAL_ENV"]: str = str(virtual_env_dir)
+environ["VIRTUAL_ENV"] = str(virtual_env_dir)
 venv.create(virtual_env_dir, clear=True, symlinks=True, with_pip=True)
 
 # install the wanted application from upstream
