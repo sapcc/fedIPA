@@ -16,7 +16,19 @@ dracut_module_dir: Path = Path(
 )
 dracut_module_setup_script: Path = Path(dracut_module_dir, "module-setup.sh")
 # even though pip is a python module, the preferred interface is via the CLI
-pip: list = [python_bin_dir, "-m", "pip"]
+pip_install: list = [
+    python_bin_dir,
+    "-m",
+    "pip",
+    "install",
+    "--ignore-installed",
+    "--no-warn-script-location",
+    "--cache-dir",
+    pip_cache_dir,
+    "--upgrade",
+    "--upgrade-strategy",
+    "eager",
+]
 
 # get some information about the system we're running on
 os_release: Path = Path("/etc/os-release")
@@ -50,14 +62,10 @@ venv.create(virtual_env_dir, clear=True, symlinks=True, with_pip=True)
 
 # install the wanted application from upstream
 pip_cache_dir.mkdir(parents=True, exist_ok=True)
+run(pip_install + ["pip", "wheel"], check=True)
 run(
-    pip
+    pip_install
     + [
-        "install",
-        "--ignore-installed",
-        "--no-warn-script-location",
-        "--cache-dir",
-        pip_cache_dir,
         "git+https://github.com/openstack/ironic-python-agent.git@stable/ussuri",  # noqa: E501
     ],
     check=True,
