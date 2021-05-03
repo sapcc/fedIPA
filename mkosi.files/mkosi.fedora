@@ -51,6 +51,7 @@ BuildPackages=
     qemu-img
     smartmontools
     systemd
+    systemd-networkd
     systemd-pam
     usbutils
     util-linux
