@@ -37,6 +37,7 @@ BuildPackages=
     lshw
     mdadm
     ncurses-base
+    nvme-cli
     openssl
     openssl-libs
     pam
