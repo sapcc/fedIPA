@@ -62,7 +62,7 @@ run(pip_install + ["pip", "wheel"], check=True)
 run(
     pip_install
     + [
-        "git+https://github.com/openstack/ironic-python-agent.git@stable/ussuri",  # noqa: E501
+        "git+https://github.com/openstack/ironic-python-agent.git@stable/wallaby",  # noqa: E501
     ],
     check=True,
 )
