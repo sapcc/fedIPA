@@ -1,10 +1,11 @@
+repos:
 - repo: https://github.com/psf/black
-  rev: master
+  rev: 21.4b2
   hooks:
     - id: black
       language_version: python3.7
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: master  # Use the ref you want to point at
+  rev: v3.4.0  # Use the ref you want to point at
   hooks:
     - id: trailing-whitespace
     - id: check-ast
@@ -17,6 +18,6 @@
       ]
     - id: trailing-whitespace
 - repo: https://gitlab.com/pycqa/flake8
-  rev: master
+  rev: 3.9.1
   hooks:
     - id: flake8
