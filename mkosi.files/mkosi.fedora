@@ -23,6 +23,7 @@ BuildPackages=
     dracut
     efibootmgr
     gcc
+    gcc-c++
     gdisk
     git
     hdparm
