@@ -21,7 +21,7 @@ function install() {
     _packages_to_install+=("bash" "bash-completion" "pam" "systemd-pam" "libpwquality")
     _packages_to_install+=("grep" "sed" "gawk")
     _packages_to_install+=("ca-certificates" "openssl" "openssl-libs")
-    _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute")
+    _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute" "iptables")
     _packages_to_install+=("less")
     _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils")
     _packages_to_install+=("python3" "python3-libs")
