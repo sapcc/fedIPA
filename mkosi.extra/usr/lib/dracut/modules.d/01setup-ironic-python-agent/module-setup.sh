@@ -13,7 +13,7 @@ function depends() {
 function install() {
     declare -a _packages_to_install=("filesystem" "coreutils" "coreutils-common" "glibc" "glibc-common" "setup" "util-linux")
     _packages_to_install+=("fedora-release" "fedora-release-common")
-    _packages_to_install+=("kernel-core" "kernel-modules" "kmod" "linux-firmware")
+    _packages_to_install+=("efibootmgr" "kernel-core" "kernel-modules" "kmod" "linux-firmware")
     _packages_to_install+=("gdisk" "iscsi-initiator-utils" "mdadm" "parted" "qemu-img" "nvme-cli")
     _packages_to_install+=("biosdevname" "systemd" "systemd-libs" "systemd-networkd" "systemd-udev")
     _packages_to_install+=("dbus-broker" "dbus-common" "dbus-libs" "dbus-tools")
@@ -21,7 +21,7 @@ function install() {
     _packages_to_install+=("bash" "bash-completion" "pam" "systemd-pam" "libpwquality")
     _packages_to_install+=("grep" "sed" "gawk")
     _packages_to_install+=("ca-certificates" "openssl" "openssl-libs")
-    _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute")
+    _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute" "iptables")
     _packages_to_install+=("less")
     _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils")
     _packages_to_install+=("python3" "python3-libs")

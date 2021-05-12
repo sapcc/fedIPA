@@ -42,6 +42,7 @@ BuildPackages=
     ipmitool
     iproute
     iputils
+    iptables
     iscsi-initiator-utils
     kernel
     kernel-core
