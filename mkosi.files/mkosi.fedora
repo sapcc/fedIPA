@@ -28,6 +28,7 @@ BuildPackages=
     git
     hdparm
     ipmitool
+    iproute
     iscsi-initiator-utils
     kernel
     kernel-core
