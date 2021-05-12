@@ -13,7 +13,7 @@ function depends() {
 function install() {
     declare -a _packages_to_install=("filesystem" "coreutils" "coreutils-common" "glibc" "glibc-common" "setup" "util-linux")
     _packages_to_install+=("fedora-release" "fedora-release-common")
-    _packages_to_install+=("kernel-core" "kernel-modules" "kmod" "linux-firmware")
+    _packages_to_install+=("efibootmgr" "kernel-core" "kernel-modules" "kmod" "linux-firmware")
     _packages_to_install+=("gdisk" "iscsi-initiator-utils" "mdadm" "parted" "qemu-img" "nvme-cli")
     _packages_to_install+=("biosdevname" "systemd" "systemd-libs" "systemd-networkd" "systemd-udev")
     _packages_to_install+=("dbus-broker" "dbus-common" "dbus-libs" "dbus-tools")
