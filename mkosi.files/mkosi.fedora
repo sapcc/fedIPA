@@ -14,31 +14,47 @@ WithNetwork=true
 BuildPackages=
     bash-completion
     bind-utils
+    bind-libs
+    bind-libs-lite
     binutils
     biosdevname
+    ca-certificates
     curl
+    dbus-broker
+    dbus-common
     dbus-libs
     dbus-tools
     dmidecode
     dracut
     efibootmgr
+    fedora-release
+    fedora-release-common
+    filesystem
+    gawk
     gcc
     gcc-c++
     gdisk
+    glibc
+    glibc-common
+    grep
     git
     hdparm
     ipmitool
     iproute
+    iputils
     iscsi-initiator-utils
     kernel
     kernel-core
     kernel-modules
     kmod
     less
+    libpwquality
     linux-firmware
     lshw
     mdadm
+    ncurses
     ncurses-base
+    ncurses-libs
     nvme-cli
     openssl
     openssl-libs
@@ -47,15 +63,20 @@ BuildPackages=
     pciutils
     pciutils-libs
     python3
+    python3-libs
     python3-devel
     python3-pip
     python3-rpm
     python3-systemd
     qemu-img
+    sed
+    setup
     smartmontools
     systemd
+    systemd-libs
     systemd-networkd
     systemd-pam
+    systemd-udev
     scsi-target-utils
     usbutils
     util-linux
