@@ -31,13 +31,13 @@ function install() {
         ln_r "usr/${dir}" "$dir"
     done
     while read -r file; do
-        [[ "$file" =~ /boot/* ]] && continue
-        [[ "$file" =~ /dev/* ]] && continue
-        [[ "$file" =~ /run/* ]] && continue
-        [[ "$file" =~ /usr/lib/.build-id/* ]] && continue
-        [[ "$file" =~ /usr/share/info/* ]] && continue
-        [[ "$file" =~ /usr/share/licenses/* ]] && continue
-        [[ "$file" =~ /usr/share/man/* ]] && continue
+        [[ "$file" =~ ^/boot/* ]] && continue
+        [[ "$file" =~ ^/dev/* ]] && continue
+        [[ "$file" =~ ^/run/* ]] && continue
+        [[ "$file" =~ ^/usr/lib/.build-id/* ]] && continue
+        [[ "$file" =~ ^/usr/share/info/* ]] && continue
+        [[ "$file" =~ ^/usr/share/licenses/* ]] && continue
+        [[ "$file" =~ ^/usr/share/man/* ]] && continue
         [[ "$file" =~ */vmlinuz ]] && continue # ignore explicitly the kernel
         [[ "$file" =~ *.hmac ]] && continue
         if test -e "$file"; then
