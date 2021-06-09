@@ -63,6 +63,7 @@ BuildPackages=
     parted
     pciutils
     pciutils-libs
+    psmisc
     python3
     python3-libs
     python3-devel

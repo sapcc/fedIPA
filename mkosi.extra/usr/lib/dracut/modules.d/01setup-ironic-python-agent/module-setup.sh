@@ -23,7 +23,7 @@ function install() {
     _packages_to_install+=("ca-certificates" "openssl" "openssl-libs")
     _packages_to_install+=("bind-libs" "bind-libs-lite" "bind-utils" "curl" "wget" "iputils" "iproute" "iptables")
     _packages_to_install+=("less")
-    _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils")
+    _packages_to_install+=("dmidecode" "hdparm" "ipmitool" "lshw" "pciutils" "pciutils-libs" "smartmontools" "usbutils" "psmisc")
     _packages_to_install+=("python3" "python3-libs")
     declare -a _rpm_files=()
     for dir in bin lib lib64 sbin; do
