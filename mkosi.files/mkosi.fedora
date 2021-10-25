@@ -71,6 +71,7 @@ BuildPackages=
     python3-rpm
     python3-systemd
     qemu-img
+    ssacli
     sed
     setup
     smartmontools

@@ -1,0 +1,6 @@
+[mcp]
+name=HPE Management Component Pack
+baseurl=http://downloads.linux.hpe.com/repo/mcp/centos/8/x86_64/12.20
+enabled=1
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/hpePublicKey2048_key1.pub
