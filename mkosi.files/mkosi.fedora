@@ -1,11 +1,11 @@
 # vim: expandtab:ts=4:sw=4:ft=dosini
 [Distribution]
 Distribution=fedora
-Release=34
+Release=36
 
 [Output]
 Format=raw_xfs
-Hostname=fedora-ipa-wallaby
+Hostname=fedora-ipa-xena
 
 [Packages]
 SourceFileTransfer=mount
