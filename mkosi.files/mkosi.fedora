@@ -4,7 +4,7 @@ Distribution=fedora
 Release=36
 
 [Output]
-Format=raw_xfs
+Format=gpt_xfs
 Hostname=fedora-ipa-xena
 
 [Packages]
