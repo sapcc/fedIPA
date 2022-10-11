@@ -2,3 +2,14 @@
 	path = mkosi
 	url = https://github.com/systemd/mkosi.git
 	branch = main
+[submodule "src/ironic-python-agent"]
+	path = src/ironic-python-agent
+	url = https://github.com/openstack/ironic-python-agent
+	branch = stable/xena
+[submodule "src/ironic-python-agent-sapcc-extensions"]
+	path = src/ironic-python-agent-sapcc-extensions
+	url = https://github.com/sapcc/ironic-python-agent-sapcc-extensions
+[submodule "requirements"]
+	path = requirements
+	url = https://github.com/sapcc/requirements.git
+	branch = stable/xena-m3
