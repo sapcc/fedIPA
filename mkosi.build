@@ -2,91 +2,31 @@
 # vim: smarttab:expandtab:ts=4:sw=4:ft=python
 
 from os import environ
+from os.path import basename
+import glob
 from subprocess import run
 from pathlib import Path
-import venv
-import rpm
+import sys
 
-output_dir: Path = Path(environ["BUILDDIR"])
-pip_cache_dir: Path = Path(output_dir, ".pip_cache")
-virtual_env_dir: Path = Path("/ipa")
-python_bin_dir: Path = Path(virtual_env_dir, "bin/python3")
-dracut_module_dir: Path = Path(
-    "/usr/lib/dracut/modules.d/49ironic-python-agent"
-)
-dracut_module_setup_script: Path = Path(dracut_module_dir, "module-setup.sh")
+root_dir: Path = Path("/root")
+src_dir: Path = Path(environ.get("SRCDIR", root_dir / "src"))
+build_dir: Path = Path(environ.get("BUILDDIR", root_dir / "build"))
+dest_dir: Path = Path(environ.get("DESTDIR", root_dir / "dest"))
+
+pip_cache_dir: Path = build_dir / ".pip_cache"
+
 # even though pip is a python module, the preferred interface is via the CLI
-pip_install: list = [
-    python_bin_dir,
-    "-m",
+pip_wheel: list = [
     "pip",
-    "install",
-    "--ignore-installed",
-    "--no-warn-script-location",
+    "wheel",
     "--cache-dir",
     pip_cache_dir,
-    "--upgrade",
-    "--upgrade-strategy",
-    "eager",
+    "-w", dest_dir / "wheels",
+    "-c", src_dir / "requirements" / "upper-constraints.txt",
 ]
-
-# get some information about the system we're running on
-os_release: Path = Path("/etc/os-release")
-if not os_release.exists():
-    os_release = Path("/usr/lib/os-release")
-os_release_env: dict = {}
-with os_release.open("r") as f:
-    for line in f:
-        (key, seperator, value) = line.partition("=")
-        os_release_env[key.strip()] = value.strip()
-
-fedipa_initramfs: Path = Path(output_dir, "fedipa.initramfs")
-fedipa_kernel: Path = Path(output_dir, "fedipa.kernel")
-
-# only one kernel will be installed.
-# we need this variable to instruct dracut not to use `uname`,
-# as this returns the wrong value in a container
-for hdr in rpm.TransactionSet().dbMatch("name", "kernel"):
-    kernel_version: str = "{}-{}.{}".format(
-        hdr[rpm.RPMTAG_VERSION], hdr[rpm.RPMTAG_RELEASE], hdr[rpm.RPMTAG_ARCH]
-    )
-    kernel_path: Path = Path("/usr/lib/modules", kernel_version, "vmlinuz")
-
-# creating the virtual env to install IPA into
-environ["VIRTUAL_ENV"] = str(virtual_env_dir)
-venv.create(virtual_env_dir, clear=True, symlinks=True, with_pip=True)
 
 # install the wanted application from upstream
 pip_cache_dir.mkdir(parents=True, exist_ok=True)
-run(pip_install + ["pip", "wheel"], check=True)
-run(
-    pip_install
-    + [
-        "git+https://github.com/openstack/ironic-python-agent.git@stable/xena",  # noqa: E501
-    ],
-    check=True,
-)
-
-# create the initramfs
-dracut_options: list = []
-dracut_options.append("/usr/bin/dracut")
-dracut_options.append("--verbose")
-dracut_options.append("--force")
-dracut_options.extend(["--kver", kernel_version])
-dracut_options.extend(["--modules", "ironic-python-agent"])
-dracut_options.append("--nofscks")
-dracut_options.append("--nomdadmconf")
-dracut_options.append("--nolvmconf")
-dracut_options.append("--ro-mnt")
-dracut_options.append("--no-hostonly")
-dracut_options.append("--no-hostonly-cmdline")
-dracut_options.append("--no-hostonly-default-device")
-dracut_options.append("--no-hostonly-i18n")
-dracut_options.append(fedipa_initramfs)
-run(dracut_options)
-fedipa_initramfs.chmod(0o644)
-
-# capture the kernel
-# as $BUILDDIR is mounted in with a bind mount, we need to read/write the file
-# here, a simple mv/rename won't work
-fedipa_kernel.write_bytes(kernel_path.read_bytes())
+python_source: Path = src_dir / "src"
+repos = [item for item in python_source.iterdir() if item.is_dir() and basename(item)[0] != '.']
+run(pip_wheel + repos, check=True)

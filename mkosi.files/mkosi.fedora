@@ -3,20 +3,36 @@
 Distribution=fedora
 Release=36
 
-[Output]
-Format=gpt_xfs
-Hostname=fedora-ipa-xena
+[Host]
+# QemuHeadless=yes
 
-[Packages]
-SourceFileTransfer=mount
-SkipFinalPhase=false
-WithNetwork=true
+[Output]
+#Format=directory
+#Format=plain_squashfs
+#Format=gpt_squashfs
+#Format=gpt_btrfs
+Format=gpt_xfs
+Hostname=fedora-ipa-zed
+SplitArtifacts=yes
+Bootable=yes
+CacheInitrd=yes
+
+[Content]
+Password=""
+Autologin=yes
+# BuildSources=src Can't use this, as sources checked out as submodules
+SourceFileTransfer=copy-git-more
+SourceFileTransferFinal=
+WithNetwork=yes
 BuildPackages=
-    bash-completion
-    bind-utils
-    bind-libs
-    bind-libs-lite
-    binutils
+    git
+    gcc
+    python3-pip
+    python3-wheel
+    python3-setuptools
+    python3-devel
+    libffi-devel
+Packages=
     biosdevname
     ca-certificates
     curl
@@ -25,61 +41,42 @@ BuildPackages=
     dbus-libs
     dbus-tools
     dmidecode
+    dracut-live
     dracut
     efibootmgr
-    fedora-release
-    fedora-release-common
-    filesystem
-    gawk
-    gcc
-    gcc-c++
     gdisk
-    glibc
-    glibc-common
     grep
-    git
     hdparm
     ipmitool
-    iproute
-    iputils
-    iptables
-    iscsi-initiator-utils
+    # iputils
+    # iscsi-initiator-utils
     kernel
     kernel-core
     kernel-modules
     kmod
     less
-    libpwquality
+    libffi
     linux-firmware
     lshw
     mdadm
-    ncurses
-    ncurses-base
-    ncurses-libs
     nvme-cli
-    openssl
-    openssl-libs
     pam
     parted
     pciutils
-    pciutils-libs
     psmisc
     python3
-    python3-libs
-    python3-devel
-    python3-pip
-    python3-rpm
-    python3-systemd
     qemu-img
     sed
-    setup
     smartmontools
     systemd
-    systemd-libs
     systemd-networkd
     systemd-pam
+    systemd-resolved
     systemd-udev
     scsi-target-utils
     usbutils
     util-linux
-    wget
+    zstd
+RemovePackages=
+    dracut-live
+    dracut
