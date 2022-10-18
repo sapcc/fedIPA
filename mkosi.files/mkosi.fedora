@@ -48,7 +48,7 @@ Packages=
     grep
     hdparm
     ipmitool
-    # iputils
+    iproute
     # iscsi-initiator-utils
     kernel
     kernel-core
