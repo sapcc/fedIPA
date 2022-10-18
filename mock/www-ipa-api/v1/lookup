@@ -1,0 +1,21 @@
+{
+  "config": {
+    "heartbeat_timeout": 900
+  },
+  "node": {
+    "uuid": "123",
+    "properties": {
+      "root_device": {
+        "size": "<= 300"
+      }
+    },
+    "instance_info": {
+      "traits": [
+        "CUSTOM_VSMP_MEMORYONE"
+      ],
+      "image_properties": {
+        "direct_url": "swift+https://objectstore-3.qa-de-1.cloud.sap:443/v1/AUTH_b206a1900310484f8a9504754c84b067"
+      }
+    }
+  }
+}

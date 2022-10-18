@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-mkdir -p image.root.dir
-mount -o loop,ro "$1" image.root.dir
-trap "umount image.root.dir && rmdir image.root.dir" EXIT
+#mkdir -p image.root.dir
+#mount -o loop,ro "$1" image.root.dir
+#trap "umount image.root.dir && rmdir image.root.dir" EXIT
+#mksquashfs image.root.dir "$2" -comp zstd
 rm -f "$2"
-mksquashfs image.root.dir "$2" -comp zstd
+mksquashfs "$1" "$2" -comp zstd
