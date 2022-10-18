@@ -2,7 +2,7 @@
 set -Eeuo pipefail
 
 mkdir -p image.root.dir
-mount -o loop "$1" image.root.dir
+mount -o loop,ro "$1" image.root.dir
 trap "umount image.root.dir && rmdir image.root.dir" EXIT
 rm -f "$2"
 mksquashfs image.root.dir "$2" -comp zstd
