@@ -34,8 +34,8 @@ shell:
 test: test_live
 
 .PHONY: test_live
-test_live: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.root.squashfs
-	$(QEMU) -append "console=ttyS0 highres=off nofb nomodeset vga=normal ipa-disk-wait-attempts=1 ipa-disk-wait-delay=1 rd.shell log_buf_len=1M rd.ctty=ttyS0 root=live:http://192.168.76.8:8080/image.root.squashfs"
+test_live: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.squashfs
+	$(QEMU) -append "console=ttyS0 highres=off nofb nomodeset vga=normal ipa-disk-wait-attempts=1 ipa-disk-wait-delay=1 rd.shell log_buf_len=1M rd.ctty=ttyS0 root=live:http://192.168.76.8:8080/image.squashfs"
 
 .PHONY: test_disk
 test_disk: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.root.raw
@@ -53,5 +53,5 @@ git-submodule-init:
 $(OUTPUT_DIR)/image.cmdline $(OUTPUT_DIR)/image.efi $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.raw $(OUTPUT_DIR)/image.raw.manifest $(OUTPUT_DIR)/image.root.raw $(OUTPUT_DIR)/image.vmlinuz &: mkosi.build mkosi.postinst mkosi.finalize mkosi.default
 	$(MKOSI_BUILD) build
 
-$(OUTPUT_DIR)/image.root.squashfs: $(OUTPUT_DIR)/image.root.raw tosquashfs
+$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image.root.raw tosquashfs
 	$(SUDO) ./tosquashfs $< $@
