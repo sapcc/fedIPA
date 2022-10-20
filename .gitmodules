@@ -5,11 +5,11 @@
 [submodule "src/ironic-python-agent"]
 	path = src/ironic-python-agent
 	url = https://github.com/openstack/ironic-python-agent
-	branch = stable/xena
+	branch = stable/zed
 [submodule "src/ironic-python-agent-sapcc-extensions"]
 	path = src/ironic-python-agent-sapcc-extensions
 	url = https://github.com/sapcc/ironic-python-agent-sapcc-extensions
 [submodule "requirements"]
 	path = requirements
 	url = https://github.com/sapcc/requirements.git
-	branch = stable/xena-m3
+	branch = stable/zed
