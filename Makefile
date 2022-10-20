@@ -60,5 +60,9 @@ git-submodule-init:
 $(OUTPUT_DIR)/image.cmdline $(OUTPUT_DIR)/image.efi $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.raw $(OUTPUT_DIR)/image.raw.manifest $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.vmlinuz &: mkosi.build mkosi.postinst mkosi.finalize mkosi.default
 	$(MKOSI_BUILD) build
 
-$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image tosquashfs
-	$(SUDO) ./tosquashfs $< $@
+#$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image tosquashfs
+#	$(SUDO) ./tosquashfs $< $@
+
+$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.manifest squashfs.exclude
+	$(SUDO) mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude
+	$(SUDO) chown $(USER) $@
