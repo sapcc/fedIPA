@@ -8,7 +8,6 @@ DISTRIBUTION ?= fedora
 RELEASE ?= 36
 OUTPUT_DIR ?= mkosi.output/$(DISTRIBUTION)~$(RELEASE)
 MKOSI ?= $(SUDO) ./mkosi/bin/mkosi
-MKOSI_BUILD = $(MKOSI) --force
 SUBNET ?= 192.168.76
 FIRST_IP = $(SUBNET).9
 MOCK_HTTP_IP = $(SUBNET).8
@@ -22,6 +21,9 @@ CPU_OPTS ?= -smp 2,sockets=2,cores=1,threads=1 -cpu Cascadelake-Server-noTSX
 NET_OPTS ?= -netdev 'user,id=n0,net=$(SUBNET).0/24,dhcpstart=$(FIRST_IP),hostfwd=tcp::9999-:9999,guestfwd=tcp:$(MOCK_IPA_API)-cmd:$(MOCK_IPA_CMD),guestfwd=tcp:$(MOCK_REPO)-cmd:${MOCK_REPO_CMD}' -device virtio-net-pci,netdev=n0
 QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic -kernel $(OUTPUT_DIR)/image.vmlinuz -initrd $(OUTPUT_DIR)/image.initrd $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
 
+mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.efi image.initrd image.vmlinuz)
+mkosi_inputs = mkosi.build mkosi.postinst mkosi.finalize mkosi.default $(wildcard mkosi.extra/**/*) $(wildcard src/**/*) $(wildcard requirements/**/*)
+
 .PHONY: default
 default: git-submodule-init build
 
@@ -30,38 +32,21 @@ clean:
 	$(SUDO) rm -rf mkosi.builddir/fedipa.*
 	$(MKOSI) --skip-final-phase false clean
 
-.PHONY: build
 build: $(OUTPUT_DIR)/image.squashfs
 
 .PHONY: shell
 shell:
 	$(MKSOSI) shell
 
-.PHONY: test
-test: test_live
-
-.PHONY: test_live
-test_live: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.squashfs
+test: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.squashfs
 	$(QEMU) -append "console=ttyS0 highres=off nofb nomodeset vga=normal ipa-disk-wait-attempts=1 ipa-disk-wait-delay=1 rd.shell log_buf_len=1M rd.ctty=ttyS0 root=live:http://$(MOCK_REPO)/image.squashfs ipa-api-url=http://$(MOCK_IPA_API)"
-
-.PHONY: test_disk
-test_disk: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.root.raw
-	$(QEMU) \
-                -device virtio-scsi-pci,id=scsi \
-                -device scsi-hd,drive=hd \
-                -drive if=none,aio=io_uring,id=hd,format=raw,file=$(OUTPUT_DIR)/image.root.raw \
-		-append "console=ttyS0 highres=off nofb nomodeset vga=normal ipa-disk-wait-attempts=1 ipa-disk-wait-delay=1 rd.shell log_buf_len=1M rd.ctty=ttyS0 root=/dev/sda"
-
 
 .PHONY: git-submodule-init
 git-submodule-init:
 	git submodule update --init --recursive --single-branch --recommend-shallow
 
-$(OUTPUT_DIR)/image.cmdline $(OUTPUT_DIR)/image.efi $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.raw $(OUTPUT_DIR)/image.raw.manifest $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.vmlinuz &: mkosi.build mkosi.postinst mkosi.finalize mkosi.default
-	$(MKOSI_BUILD) build
-
-#$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image tosquashfs
-#	$(SUDO) ./tosquashfs $< $@
+$(mkosi_outputs) &: $(mkosi_inputs)
+	$(MKOSI) --force build
 
 $(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.manifest squashfs.exclude
 	$(SUDO) mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude

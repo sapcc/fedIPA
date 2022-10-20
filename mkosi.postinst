@@ -9,5 +9,5 @@ systemctl disable -f graphical.target
 
 python3 -m venv /ipa
 source /ipa/bin/activate
-pip install -vvv --no-index --no-cache-dir --find-links file:///wheels ironic-python-agent ironic-python-agent-sapcc-extensions
+pip install --no-index --no-cache-dir --find-links file:///wheels ironic-python-agent ironic-python-agent-sapcc-extensions
 rm -fr /wheels
