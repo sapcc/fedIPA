@@ -19,7 +19,8 @@ MOCK_IPA_CMD = lighttpd -1 -f mock/ipa-api.conf
 DEVICE_OPTS ?= -device virtio-serial-pci,id=virtio-serial0,bus=pci.0,addr=0x4 -device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6
 CPU_OPTS ?= -smp 2,sockets=2,cores=1,threads=1 -cpu Cascadelake-Server-noTSX
 NET_OPTS ?= -netdev 'user,id=n0,net=$(SUBNET).0/24,dhcpstart=$(FIRST_IP),hostfwd=tcp::9999-:9999,guestfwd=tcp:$(MOCK_IPA_API)-cmd:$(MOCK_IPA_CMD),guestfwd=tcp:$(MOCK_REPO)-cmd:${MOCK_REPO_CMD}' -device virtio-net-pci,netdev=n0
-QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic -kernel $(OUTPUT_DIR)/image.vmlinuz -initrd $(OUTPUT_DIR)/image.initrd $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
+BIOS_OPTS ?= -bios /usr/share/edk2/ovmf/OVMF_CODE.fd
+QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) -kernel $(OUTPUT_DIR)/image.vmlinuz -initrd $(OUTPUT_DIR)/image.initrd $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
 
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.efi image.initrd image.vmlinuz)
 mkosi_inputs = mkosi.build mkosi.postinst mkosi.default $(wildcard mkosi.extra/**/*) $(wildcard src/**/*) $(wildcard requirements/**/*)
