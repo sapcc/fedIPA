@@ -49,6 +49,8 @@ git-submodule-init:
 $(mkosi_outputs) &: $(mkosi_inputs)
 	$(MKOSI) --force build
 
+# This could be done with the Output.Format=plain_squashfs as well, but we only need it
+# for the final image, not the build image.
 $(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.manifest squashfs.exclude
 	$(SUDO) mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude
 	$(SUDO) chown $(USER) $@
