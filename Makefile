@@ -22,7 +22,7 @@ NET_OPTS ?= -netdev 'user,id=n0,net=$(SUBNET).0/24,dhcpstart=$(FIRST_IP),hostfwd
 QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic -kernel $(OUTPUT_DIR)/image.vmlinuz -initrd $(OUTPUT_DIR)/image.initrd $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
 
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.efi image.initrd image.vmlinuz)
-mkosi_inputs = mkosi.build mkosi.postinst mkosi.finalize mkosi.default $(wildcard mkosi.extra/**/*) $(wildcard src/**/*) $(wildcard requirements/**/*)
+mkosi_inputs = mkosi.build mkosi.postinst mkosi.default $(wildcard mkosi.extra/**/*) $(wildcard src/**/*) $(wildcard requirements/**/*)
 
 .PHONY: default
 default: git-submodule-init build
