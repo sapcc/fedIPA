@@ -5,7 +5,6 @@
 systemctl enable systemd-networkd
 systemctl enable ironic-python-agent
 systemctl set-default -f multi-user.target
-systemctl disable -f graphical.target
 
 python3 -m venv /ipa
 source /ipa/bin/activate
