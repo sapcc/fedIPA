@@ -3,7 +3,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-Type=oneshot
+Type=exec
 Environment="VIRTUAL_ENV=/ipa"
 Environment="PATH=/ipa/bin:/usr/sbin:/usr/bin"
 ExecStart=/ipa/bin/python3 /ipa/bin/ironic-python-agent --debug
