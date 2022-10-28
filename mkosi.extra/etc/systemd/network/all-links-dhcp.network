@@ -8,3 +8,7 @@ LLDP=true
 EmitLLDP=true
 MulticastDNS=true
 LLMNR=true
+
+[DHCPv4]
+UseDomains=true
+UseMTU=true

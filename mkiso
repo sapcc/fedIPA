@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+cd $(dirname $1)
+# dnf -y install xorriso dosfstools mtools
+
+trap "rm -fr iso_src efiboot.img" EXIT
+mkdir -p iso_src/LiveOS
+cp --reflink=auto image.squashfs iso_src/LiveOS/squashfs.img
+
+kernel_size=`du -b image_iso.efi | awk '{print \$1}'`
+image_size=$((kernel_size + 512000))
+rm -f efiboot.img
+truncate -s $image_size efiboot.img
+mkfs.vfat efiboot.img
+mmd -i efiboot.img efi efi/boot
+mcopy -i efiboot.img image_iso.efi ::efi/boot/bootx64.efi
+
+xorriso \
+    -as mkisofs \
+    -iso-level 3 \
+    -full-iso9660-filenames \
+    -volid "LINUX_IPA" \
+    -eltorito-alt-boot \
+        -e EFI/efiboot.img \
+        -no-emul-boot \
+    -append_partition 2 0xef efiboot.img \
+    -output image.iso \
+    -graft-points \
+	"./iso_src" \
+        /EFI/efiboot.img=efiboot.img
