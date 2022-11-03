@@ -25,7 +25,7 @@ BIOS_OPTS ?= -bios /usr/share/edk2/ovmf/OVMF_CODE.fd -device ahci,id=achi0
 QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
 
 file_inputs = $(shell find src/ requirements/ mkosi.extra/)
-mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.efi image.initrd image.vmlinuz)
+mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.initrd image.vmlinuz)
 mkosi_inputs = mkosi.build mkosi.postinst mkosi.default $(file_inputs)
 
 .PHONY: default
