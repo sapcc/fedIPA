@@ -21,6 +21,7 @@ KernelCommandLine=!* console=tty0 console=ttyS0 nofb nomodeset vga=normal
 [Content]
 Password=""
 Autologin=yes
+CleanPackageMetadata=yes
 # BuildSources=src Can't use this, as sources checked out as submodules
 SourceFileTransfer=copy-git-more
 SourceFileTransferFinal=
