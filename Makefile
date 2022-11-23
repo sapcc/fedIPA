@@ -1,3 +1,4 @@
+SHELL := /usr/bin/env bash
 ifeq ($(UID),0)
 	SUDO =
 else
@@ -12,17 +13,22 @@ SUBNET ?= 192.168.76
 FIRST_IP = $(SUBNET).9
 MOCK_HTTP_IP = $(SUBNET).8
 MOCK_REPO = $(MOCK_HTTP_IP):8080
-MOCK_REPO_CMD = env OUTPUT_DIR=$(OUTPUT_DIR) lighttpd -1 -f mock/repo.conf
+MOCK_REPO_CMD = /usr/bin/env USER=$(ORIGNAL_USER) OUTPUT_DIR=$(OUTPUT_DIR) lighttpd -1 -f mock/repo.conf
 MOCK_IPA_API = $(MOCK_HTTP_IP):8081
-MOCK_IPA_CMD = lighttpd -1 -f mock/ipa-api.conf
+MOCK_IPA_CMD = /usr/bin/env USER=$(ORIGNAL_USER) lighttpd -1 -f mock/ipa-api.conf
 DOMAIN = openstack.qa-de-1.cloud.sap
+OVMF ?= $(wildcard /usr/share/OVMF/OVMF_CODE.fd /usr/share/edk2/ovmf/OVMF_CODE.fd)
+
+ORIGNAL_USER_ID ?= $(shell test -v SUDO_UID && echo $$SUDO_UID || test -v PKEXEC_UID && echo $$PKEXEC_UID || echo $$UID)
+ORIGNAL_USER ?= $(shell id -un $(ORIGNAL_USER_ID))
 
 DEVICE_OPTS ?= -device virtio-serial-pci,id=virtio-serial0,bus=pci.0,addr=0x4 -device virtio-balloon-pci,id=balloon0,bus=pci.0,addr=0x6
-CPU_OPTS ?= -smp 2,sockets=2,cores=1,threads=1 -cpu Cascadelake-Server-noTSX
+CPU_OPTS ?= -smp 2,sockets=2,cores=1,threads=1 -cpu host
 NET_OPTS ?= -netdev 'user,id=n0,net=$(SUBNET).0/24,dhcpstart=$(FIRST_IP),hostname=host-a,domainname=$(DOMAIN),dnssearch=$(DOMAIN),hostfwd=tcp::9999-:9999,guestfwd=tcp:$(MOCK_IPA_API)-cmd:$(MOCK_IPA_CMD),guestfwd=tcp:$(MOCK_REPO)-cmd:${MOCK_REPO_CMD}' -device virtio-net-pci,netdev=n0
-BIOS_OPTS ?= -bios /usr/share/edk2/ovmf/OVMF_CODE.fd -device ahci,id=achi0
+BIOS_OPTS ?= -bios $(OVMF) -device ahci,id=achi0
+DISK_OPTS ?= -drive if=none,id=nvme0,cache=none,format=raw,aio=io_uring,file=vmdisk.img -device nvme,serial=deadbeef,drive=nvme0
 
-QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS)
+QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS) $(DISK_OPTS)
 
 file_inputs = $(shell find src/ requirements/ mkosi.extra/)
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.initrd image.vmlinuz)
@@ -45,7 +51,10 @@ build: $(OUTPUT_DIR)/image.squashfs
 shell:
 	$(MKSOSI) shell
 
-test: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.squashfs
+vmdisk.img:
+	qemu-img create -f raw -o preallocation=falloc vmdisk.img 60G
+
+test: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.initrd $(OUTPUT_DIR)/image.squashfs vmdisk.img
 	$(QEMU) \
 		-kernel $(OUTPUT_DIR)/image.vmlinuz -initrd $(OUTPUT_DIR)/image.initrd \
 		-append "console=ttyS0 nofb nomodeset vga=normal root=live:http://$(MOCK_REPO)/image.squashfs ipa-api-url=http://$(MOCK_IPA_API)"
@@ -90,10 +99,10 @@ $(OUTPUT_DIR)/image_iso.efi: $(OUTPUT_DIR)/image.vmlinuz $(OUTPUT_DIR)/image.ini
 
 # This could be done with the Output.Format=plain_squashfs as well, but we only need it
 # for the final image, not the build image.
-$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image $(OUTPUT_DIR)/image.manifest squashfs.exclude
+$(OUTPUT_DIR)/image.squashfs: $(OUTPUT_DIR)/image squashfs.exclude
 	$(SUDO) mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude
-	$(SUDO) chown $(USER) $@
+	$(SUDO) chown $(ORIGNAL_USER) $@
 
 $(OUTPUT_DIR)/image.iso: $(OUTPUT_DIR)/image_iso.efi $(OUTPUT_DIR)/image.squashfs mkiso
 	$(SUDO) ./mkiso $(OUTPUT_DIR)/image.iso
-	$(SUDO) chown $(USER) $@
+	$(SUDO) chown $(ORIGNAL_USER) $@
