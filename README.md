@@ -32,20 +32,23 @@ from the `image/` directory.
 * git
 * python3 >= 3.5
 * systemd-nspawn
-* rpm
 * dnf
 * make
-* mksquasfs
+* squashfs-tools
+* ovmf
 * lighttpd (for testing)
 * qemu-kvm (for testing)
+* xorriso (for iso creation)
 
 ## HowTo
 
 You can simply run the following commands to create the desired output:
 ```shell
-sudo dnf install git python3 make systemd-container qemu-kvm lighttpd
-git clone --recurse-submodules https://github.com/sapcc/fedIPA.git
-cd fedIPA
+if [ -f /etc/debian_version ]; then
+    sudo apt install dnf git python3 make systemd-container qemu-kvm lighttpd lighttpd-modules-lua squashfs-tools ovmf
+else
+    sudo dnf install git python3 make systemd-container qemu-kvm lighttpd squashfs-tools xorriso edk2-ovmf
+fi
 make
 ```
 

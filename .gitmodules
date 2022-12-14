@@ -13,3 +13,5 @@
 	path = requirements
 	url = https://github.com/sapcc/requirements.git
 	branch = stable/zed
+[submodule "ironic-python-agent"]
+	url = https://github.com/sapcc/ironic-python-agent.git

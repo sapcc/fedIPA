@@ -16,10 +16,12 @@ Hostname=fedora-ipa-zed
 SplitArtifacts=yes
 Bootable=yes
 CacheInitrd=yes
+KernelCommandLine=!* console=tty0 console=ttyS0 nofb nomodeset vga=normal
 
 [Content]
 Password=""
 Autologin=yes
+CleanPackageMetadata=yes
 # BuildSources=src Can't use this, as sources checked out as submodules
 SourceFileTransfer=copy-git-more
 SourceFileTransferFinal=
@@ -63,6 +65,7 @@ Packages=
     parted
     pciutils
     psmisc
+    polkit # Needed for setting the hostname. Alternative: https://github.com/systemd/systemd/issues/13501#issuecomment-782094692
     python3
     qemu-img
     sed
