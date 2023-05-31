@@ -36,6 +36,7 @@ BuildPackages=
     libffi-devel
 Packages=
     biosdevname
+    bind-utils
     ca-certificates
     curl
     dbus-broker
@@ -45,12 +46,15 @@ Packages=
     dracut-live
     dracut
     efibootmgr
+    fio
     gawk
     gdisk
     grep
+    htop
     hdparm
     ipmitool
     iproute
+    iputils
     # iscsi-initiator-utils
     kernel
     kernel-core
@@ -65,15 +69,18 @@ Packages=
     parted
     pciutils
     psmisc
+    procps-ng
     polkit # Needed for setting the hostname. Alternative: https://github.com/systemd/systemd/issues/13501#issuecomment-782094692
     python3
     qemu-img
     sed
     smartmontools
+    stress-ng
     systemd-networkd
     systemd-resolved
     systemd-udev
     # scsi-target-utils
+    tcpdump
     usbutils
     util-linux
     zstd
