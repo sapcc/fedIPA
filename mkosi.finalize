@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+[ "$1" == "final" ] || exit 0
+if [ -z ${BUILDROOT+x} ]; then exit 1 ; fi
+
+systemctl --root="$BUILDROOT" enable systemd-networkd
+systemctl --root="$BUILDROOT" disable NetworkManager.service
+systemctl --root="$BUILDROOT" enable ironic-python-agent
+systemctl --root="$BUILDROOT" set-default -f multi-user.target

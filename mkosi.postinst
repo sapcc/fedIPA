@@ -2,11 +2,6 @@
 
 [ "$1" == "final" ] || exit 0
 
-systemctl enable systemd-networkd
-systemctl disable NetworkManager.service
-systemctl enable ironic-python-agent
-systemctl set-default -f multi-user.target
-
 python3 -m venv /ipa
 source /ipa/bin/activate
 pip install --no-index --no-cache-dir --find-links file:///wheels ironic-python-agent ironic-python-agent-sapcc-extensions
