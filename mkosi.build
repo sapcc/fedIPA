@@ -3,10 +3,8 @@
 
 from os import environ
 from os.path import basename
-import glob
 from subprocess import run
 from pathlib import Path
-import sys
 
 root_dir: Path = Path("/root")
 src_dir: Path = Path(environ.get("SRCDIR", root_dir / "src"))
@@ -29,4 +27,9 @@ pip_wheel: list = [
 pip_cache_dir.mkdir(parents=True, exist_ok=True)
 python_source: Path = src_dir / "src"
 repos = [item for item in python_source.iterdir() if item.is_dir() and basename(item)[0] != '.']
-run(pip_wheel + repos, check=True)
+cmd = pip_wheel + repos
+git_safe_directory = ["git", "config", "--global", "--add", "safe.directory"]
+run(git_safe_directory + [src_dir], check=True)
+for repo in repos:
+    run(git_safe_directory + [repo], check=True)
+run(cmd, check=True)

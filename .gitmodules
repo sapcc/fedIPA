@@ -1,6 +1,6 @@
 [submodule "mkosi"]
 	path = mkosi
-	url = https://github.com/systemd/mkosi.git
+	url = https://github.com/sapcc/mkosi.git
 	branch = main
 [submodule "src/ironic-python-agent"]
 	path = src/ironic-python-agent

@@ -8,7 +8,7 @@ endif
 DISTRIBUTION ?= fedora
 RELEASE ?= 36
 OUTPUT_DIR ?= mkosi.output/$(DISTRIBUTION)~$(RELEASE)
-MKOSI ?= $(SUDO) ./mkosi/bin/mkosi
+MKOSI ?= $(SUDO) ./mkosi/bin/mkosi --distribution $(DISTRIBUTION) --release $(RELEASE)
 SUBNET ?= 192.168.76
 FIRST_IP = $(SUBNET).9
 MOCK_HTTP_IP = $(SUBNET).8
@@ -32,7 +32,7 @@ QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(D
 
 file_inputs = $(shell find src/ requirements/ mkosi.extra/)
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, image image.manifest image.cmdline image.initrd image.vmlinuz)
-mkosi_inputs = mkosi.build mkosi.postinst mkosi.default $(file_inputs)
+mkosi_inputs = mkosi.build mkosi.postinst mkosi.conf $(file_inputs)
 
 .PHONY: default
 default: git-submodule-init build
@@ -70,6 +70,7 @@ git-submodule-init:
 
 $(mkosi_outputs) &: $(mkosi_inputs)
 	$(MKOSI) --force build
+	$(SUDO) chown $(ORIGNAL_USER) $(OUTPUT_DIR)
 
 .PHONY: efi
 efi: $(OUTPUT_DIR)/image.efi
