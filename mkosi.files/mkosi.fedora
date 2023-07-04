@@ -8,10 +8,6 @@ Release=36
 
 [Output]
 Format=directory
-#Format=plain_squashfs
-#Format=gpt_squashfs
-#Format=gpt_btrfs
-#Format=gpt_xfs
 Hostname=fedora-ipa-zed
 SplitArtifacts=yes
 Bootable=yes
