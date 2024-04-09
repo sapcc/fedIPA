@@ -1,27 +1,31 @@
 # vim: expandtab:ts=4:sw=4:ft=dosini
 [Distribution]
 Distribution=fedora
-Release=36
+Release=38
 
 [Host]
 # QemuHeadless=yes
+ToolsTree=default
 
 [Output]
+Output=image
 Format=directory
-Hostname=fedora-ipa-zed
-SplitArtifacts=yes
-Bootable=yes
-CacheInitrd=yes
-KernelCommandLine=!* console=tty0 console=ttyS0 nofb nomodeset vga=normal
+ManifestFormat=json
 
 [Content]
-Password=""
 Autologin=yes
 CleanPackageMetadata=yes
+Hostname=fedora-ipa-zed
+# MakeInitrd=no # This means the whole filesystem is content for a ramdisk
+Bootable=no
+# Bootloader=systemd-boot # Default requires on the host a current version of systemd,
 # BuildSources=src Can't use this, as sources checked out as submodules
-SourceFileTransfer=copy-git-more
-SourceFileTransferFinal=
 WithNetwork=yes
+Locale=C.UTF-8
+LocaleMessages=C.UTF-8
+Timezone=UTC
+WithDocs=no
+KernelCommandLine=!* console=tty0 console=ttyS0 nofb nomodeset vga=normal
 BuildPackages=
     git
     gcc
@@ -46,6 +50,8 @@ Packages=
     gawk
     gdisk
     grep
+    grub2-efi
+    grub2-efi-modules
     htop
     hdparm
     ipmitool
@@ -70,16 +76,15 @@ Packages=
     python3
     qemu-img
     sed
+    shim
     smartmontools
     stress-ng
+    systemd-boot
     systemd-networkd
     systemd-resolved
-    systemd-udev
+    systemd-ukify
     # scsi-target-utils
     tcpdump
     usbutils
     util-linux
     zstd
-RemovePackages=
-    dracut-live
-    dracut
