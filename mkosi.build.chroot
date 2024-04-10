@@ -6,10 +6,12 @@ from os.path import basename
 from subprocess import run
 from pathlib import Path
 
+
 root_dir: Path = Path("/root")
-src_dir: Path = Path(environ.get("SRCDIR", root_dir / "src"))
-build_dir: Path = Path(environ.get("BUILDDIR", root_dir / "build"))
-dest_dir: Path = Path(environ.get("DESTDIR", root_dir / "dest"))
+src_dir: Path = Path(environ["SRCDIR"])
+build_dir: Path = Path(environ["BUILDDIR"])
+output_dir: Path = Path(environ["OUTPUTDIR"])
+dest_dir: Path = Path(environ["DESTDIR"])
 
 pip_cache_dir: Path = build_dir / ".pip_cache"
 
@@ -19,7 +21,7 @@ pip_wheel: list = [
     "wheel",
     "--cache-dir",
     pip_cache_dir,
-    "-w", dest_dir / "wheels",
+    "-w", output_dir / "wheels",
     "-c", src_dir / "requirements" / "upper-constraints.txt",
 ]
 

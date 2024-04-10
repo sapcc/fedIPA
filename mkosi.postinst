@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-[ "$1" == "final" ] || exit 0
-
-python3 -m venv /ipa
-source /ipa/bin/activate
-pip install --no-index --no-cache-dir --find-links file:///wheels ironic-python-agent ironic-python-agent-sapcc-extensions
-rm -fr /wheels

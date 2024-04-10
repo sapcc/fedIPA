@@ -4,10 +4,10 @@ After=network-online.target
 
 [Service]
 Type=exec
-Environment="VIRTUAL_ENV=/ipa"
-Environment="PATH=/ipa/bin:/usr/sbin:/usr/bin"
-ExecStart=/ipa/bin/ironic-python-agent --config-file /etc/ironic-python-agent/ironic-python-agent.conf
+Environment="VIRTUAL_ENV=/opt/ipa"
+Environment="PATH=/opt/ipa/bin:/usr/sbin:/usr/bin"
+ExecStart=/opt/ipa/bin/ironic-python-agent --config-file /etc/ironic-python-agent/ironic-python-agent.conf
 ExecStartPre=/bin/bash -c "/usr/bin/grep 'ipa-api-url=' /proc/cmdline || ( /usr/bin/sed -nE 's/^search\s*openstack.(\S*).*$/api_url = https:\/\/baremetal-3.\1/p' /etc/resolv.conf | tee -a /etc/ironic-python-agent/ironic-python-agent.conf )"
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
