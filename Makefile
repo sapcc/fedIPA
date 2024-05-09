@@ -29,9 +29,9 @@ DISK_OPTS ?= -drive if=none,id=nvme0,cache=none,format=raw,aio=io_uring,file=vmd
 
 QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS) $(DISK_OPTS)
 
-file_inputs = $(shell find src/ requirements/ mkosi.extra/)
+file_inputs = $(shell find src/ requirements/ mkosi.extra/ mkosi.conf.d/)
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, $(OUTPUT) $(OUTPUT).vmlinuz $(OUTPUT).initrd)
-mkosi_inputs = mkosi.build.chroot mkosi.postinst.chroot mkosi.finalize mkosi.conf $(file_inputs)
+mkosi_inputs = mkosi.build.chroot mkosi.postinst.chroot mkosi.finalize $(file_inputs)
 
 .PHONY: default
 default: git-submodule-init build
@@ -42,7 +42,7 @@ iso: $(OUTPUT_DIR)/image.iso
 .PHONY: clean
 clean:
 	$(SUDO) rm -rf mkosi.builddir/image* mkosi.builddir/initrd*
-	$(MKOSI) --skip-final-phase false clean
+	$(MKOSI) clean
 
 build: $(OUTPUT_DIR)/$(OUTPUT).squashfs
 
