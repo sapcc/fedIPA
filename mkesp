@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+OS=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m)
+DEST=${1:-/tmp/esp-${OS}-${ARCH}.img}
+
+if [[ "$ARCH" == "x86_64" ]]; then
+    PACKAGES=grub2-efi-x64
+    BOOTEFI=BOOTX64.EFI
+    GRUBEFI=grubx64.efi
+elif [[ "$ARCH" == "aarch64" ]]; then
+    PACKAGES=grub2-efi-aa64
+    BOOTEFI=BOOTAA64.EFI
+    GRUBEFI=grubaa64.efi
+else
+    echo "WARNING: don't know how to build an EFI image on $ARCH"
+    touch "$DEST"
+    exit 0
+fi
+
+BLOCKS_NEEDED=$(du -B1024 -c /boot/efi/EFI/BOOT/BOOTX64.EFI  /boot/efi/EFI/${OS}/grubx64.efi  | awk '/total/{ print $1 }')
+dd bs=1024 count=$(($BLOCKS_NEEDED + 64)) if=/dev/zero of="$DEST"
+mkfs.msdos -F 12 -n 'ESP_IMAGE' "$DEST"
+
+mmd -i "$DEST" EFI
+mmd -i "$DEST" EFI/BOOT
+mcopy -i "$DEST" -v "/boot/efi/EFI/BOOT/$BOOTEFI" "/boot/efi/EFI/$OS/$GRUBEFI" ::EFI/BOOT
+mdir -i "$DEST" ::EFI/BOOT
