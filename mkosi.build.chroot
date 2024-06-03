@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # vim: smarttab:expandtab:ts=4:sw=4:ft=python
 
-from os import environ
+from os import environ, chdir
 from os.path import basename
 from subprocess import run
 from pathlib import Path
 
+
+chdir("/var/tmp")
 
 root_dir: Path = Path("/root")
 src_dir: Path = Path(environ["SRCDIR"])
