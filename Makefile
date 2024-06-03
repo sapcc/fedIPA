@@ -2,12 +2,14 @@ SHELL := /usr/bin/env bash
 ifeq ($(UID),0)
 	SUDO =
 else
-	SUDO = sudo
+	SUDO ?= sudo
 endif
 
 OUTPUT ?= image
 OUTPUT_DIR ?= mkosi.output
-MKOSI ?= $(SUDO) ./mkosi/bin/mkosi --debug-shell --debug
+WORKSPACE_DIR ?= /var/tmp
+BUILD_DIR ?= mkosi.builddir
+MKOSI ?= $(SUDO) ./mkosi/bin/mkosi --output-dir $(OUTPUT_DIR) --workspace-dir $(WORKSPACE_DIR) --build-dir $(BUILD_DIR)
 SUBNET ?= 192.168.76
 FIRST_IP = $(SUBNET).9
 MOCK_HTTP_IP = $(SUBNET).8
