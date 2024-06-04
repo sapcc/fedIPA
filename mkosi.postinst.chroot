@@ -5,3 +5,22 @@ python3 -m venv /opt/ipa
 source /opt/ipa/bin/activate
 pip install --no-index --no-cache-dir --find-links file:///$OUTPUTDIR/wheels ironic-python-agent ironic-python-agent-sapcc-extensions
 
+cd /lib/modules/*/kernel
+
+rm -fr \
+  sound \
+  fpga \
+  gnss \
+  drivers/ata/pata_* \
+  drivers/firewire \
+  drivers/net/can \
+  drivers/net/wireless \
+  drivers/net/hamradio \
+  drivers/net/thunderbolt \
+  drivers/net/wwan \
+  drivers/memstick \
+  drivers/media \
+  drivers/mmc \
+  drivers/usb/typec
+
+depmod -a $(for ver in /lib/modules/*; do echo ${ver##*/} ; done)
