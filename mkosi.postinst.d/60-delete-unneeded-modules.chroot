@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-python3 -m venv /opt/ipa
-source /opt/ipa/bin/activate
-pip install --no-index --no-cache-dir --find-links file:///$OUTPUTDIR/wheels ironic-python-agent ironic-python-agent-sapcc-extensions
-
 cd /lib/modules/*/kernel
 
 rm -fr \

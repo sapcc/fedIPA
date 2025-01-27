@@ -1,15 +1,10 @@
 SHELL := /usr/bin/env bash
-ifeq ($(UID),0)
-	SUDO =
-else
-	SUDO ?= sudo
-endif
 
 OUTPUT ?= image
 OUTPUT_DIR ?= mkosi.output
-WORKSPACE_DIR ?= /var/tmp
+WORKSPACE_DIR ?= ~/tmp
 BUILD_DIR ?= mkosi.builddir
-MKOSI ?= $(SUDO) ./mkosi/bin/mkosi --output-dir $(OUTPUT_DIR) --workspace-dir $(WORKSPACE_DIR) --build-dir $(BUILD_DIR)
+MKOSI ?= ./mkosi/bin/mkosi --output-dir $(OUTPUT_DIR) --workspace-dir $(WORKSPACE_DIR) --build-dir $(BUILD_DIR)
 SUBNET ?= 192.168.76
 FIRST_IP = $(SUBNET).9
 MOCK_HTTP_IP = $(SUBNET).8
@@ -29,11 +24,10 @@ NET_OPTS ?= -netdev 'user,id=n0,net=$(SUBNET).0/24,dhcpstart=$(FIRST_IP),hostnam
 BIOS_OPTS ?= -bios $(OVMF) -device ahci,id=achi0
 DISK_OPTS ?= -drive if=none,id=nvme0,cache=none,format=raw,aio=io_uring,file=vmdisk.img -device nvme,serial=deadbeef,drive=nvme0
 
-QEMU = $(SUDO) qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS) $(DISK_OPTS)
+QEMU = qemu-system-x86_64 -accel kvm -m 4096 -nographic $(BIOS_OPTS) $(DEVICE_OPTS) $(CPU_OPTS) $(NET_OPTS) $(DISK_OPTS)
 
-file_inputs = $(shell find src/ requirements/ mkosi.extra/ mkosi.conf.d/)
 mkosi_outputs = $(addprefix $(OUTPUT_DIR)/, $(OUTPUT) $(OUTPUT).vmlinuz $(OUTPUT).initrd)
-mkosi_inputs = mkosi.build.chroot mkosi.postinst.chroot mkosi.finalize $(file_inputs)
+mkosi_inputs = $(shell find src/ requirements/ mkosi.extra/ mkosi.*.d/ -type f)
 
 .PHONY: default
 default: git-submodule-init build
@@ -43,7 +37,7 @@ iso: $(OUTPUT_DIR)/image.iso
 
 .PHONY: clean
 clean:
-	$(SUDO) rm -rf mkosi.builddir/image* mkosi.builddir/initrd*
+	rm -rf mkosi.builddir/image* mkosi.builddir/initrd*
 	$(MKOSI) clean
 
 build: $(OUTPUT_DIR)/$(OUTPUT).squashfs
@@ -70,9 +64,8 @@ git-submodule-init:
 	git submodule update --init --recursive --single-branch --recommend-shallow
 
 $(mkosi_outputs) &: $(mkosi_inputs)
-	$(SUDO) rm -fr $(OUTPUT_DIR)/image* $(OUTPUT_DIR)/initrd*
+	rm -fr $(OUTPUT_DIR)/image* $(OUTPUT_DIR)/initrd*
 	$(MKOSI) build
-	$(SUDO) chown $(ORIGNAL_USER) $(OUTPUT_DIR)
 
 $(OUTPUT_DIR)/$(OUTPUT)_iso.cmdline: Makefile
 	echo 'console=ttyS0 nofb nomodeset vga=normal root=live:/dev/sr0 ipa-api-url=http://$(MOCK_IPA_API)' > $@
@@ -91,9 +84,7 @@ $(OUTPUT_DIR)/$(OUTPUT)_iso.efi: $(OUTPUT_DIR)/$(OUTPUT).vmlinuz $(OUTPUT_DIR)/$
 # This could be done with the Output.Format=plain_squashfs as well, but we only need it
 # for the final image, not the build image.
 $(OUTPUT_DIR)/$(OUTPUT).squashfs: $(OUTPUT_DIR)/$(OUTPUT) squashfs.exclude
-	$(SUDO) mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude
-	$(SUDO) chown $(ORIGNAL_USER) $@
+	mksquashfs $< $@ -noappend -comp zstd -wildcards -ef squashfs.exclude -all-root
 
 $(OUTPUT_DIR)/$(OUTPUT).iso: $(OUTPUT_DIR)/$(OUTPUT).efi $(OUTPUT_DIR)/$(OUTPUT).squashfs mkiso
-	$(SUDO) ./mkiso $(OUTPUT_DIR)/$(OUTPUT).iso
-	$(SUDO) chown $(ORIGNAL_USER) $@
+	./mkiso $(OUTPUT_DIR)/$(OUTPUT).iso
