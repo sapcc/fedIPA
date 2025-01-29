@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+chmod u+r /etc/*shadow*

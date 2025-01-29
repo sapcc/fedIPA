@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+# vim: smarttab:expandtab:ts=4:sw=4:ft=bash
+set -euo pipefail
+export XDG_CACHE_HOME="${BUILDDIR}/cache"
+mkdir -p "$XDG_CACHE_HOME"
+
+git config --global --add safe.directory ${SRCDIR}
+for repo in ${SRCDIR}/src/*; do
+	git config --global --add safe.directory $repo
+done
+
+PIP_WHEEL_DIR="${ARTIFACTDIR}/wheels"
+mkdir -p "${PIP_WHEEL_DIR}"
+
+# install the wanted application from upstream
+pip wheel --disable-pip-version-check \
+	-c "${SRCDIR}/requirements/upper-constraints.txt" \
+	--wheel "$PIP_WHEEL_DIR" \
+	${SRCDIR}/src/*
